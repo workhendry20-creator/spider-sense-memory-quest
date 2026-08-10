@@ -797,6 +797,9 @@ class CrosswordTTSGame {
       </div>
 
       <div class="tts-wrapper">
+        <!-- Hidden input to trigger native mobile/smartphone keyboard -->
+        <input type="text" id="tts-hidden-input" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" style="position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; top: -9999px; left: -9999px;">
+
         <div class="tts-grid-container" id="tts-grid">
           ${Array.from({ length: this.gridRows }).map((_, r) => `
             <div class="tts-grid-row">
@@ -837,19 +840,15 @@ class CrosswordTTSGame {
         </div>
       </div>
 
-      <div class="tts-keyboard" id="tts-virtual-keyboard">
-        ${"QWERTYUIOPASDFGHJKLZXCVBNM".split('').map(letter => `
-          <button type="button" class="tts-key-btn" data-key="${letter}">${letter}</button>
-        `).join('')}
-        <button type="button" class="tts-key-btn action-key" data-key="BACKSPACE">⌫ DEL</button>
-      </div>
-
       <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-        <button type="button" id="btn-tts-hint" class="btn-icon" style="flex: 1; justify-content: center; background: #FFF;">
-          💡 PETUNJUK SPIDER-SENSE
+        <button type="button" id="btn-tts-focus-kbd" class="btn-primary-comic" style="flex: 1; justify-content: center; font-size: 1rem; background: #00F0FF; color: #0A1128;">
+          ⌨️ KETIK DENGAN KEYBOARD HP
         </button>
-        <button type="button" id="btn-tts-check" class="btn-primary-comic" style="flex: 1; justify-content: center; font-size: 1.1rem; background: var(--comic-yellow); color: #101010;">
-          ⚡ PERIKSA JAWABAN
+        <button type="button" id="btn-tts-hint" class="btn-icon" style="flex: 1; justify-content: center; background: #FFF;">
+          💡 PETUNJUK
+        </button>
+        <button type="button" id="btn-tts-check" class="btn-primary-comic" style="flex: 1; justify-content: center; font-size: 1.05rem; background: var(--comic-yellow); color: #101010;">
+          ⚡ CEK JAWABAN
         </button>
       </div>
     `;
@@ -861,12 +860,34 @@ class CrosswordTTSGame {
   }
 
   bindEvents() {
+    const hiddenInput = this.container.querySelector('#tts-hidden-input');
+
+    if (hiddenInput) {
+      hiddenInput.addEventListener('input', () => {
+        const val = hiddenInput.value.toUpperCase();
+        hiddenInput.value = '';
+        if (val) {
+          const lastChar = val.slice(-1);
+          if (/^[A-Z]$/.test(lastChar)) {
+            this.handleInputLetter(lastChar);
+          }
+        }
+      });
+
+      hiddenInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace') {
+          this.handleBackspace();
+        }
+      });
+    }
+
     const cells = this.container.querySelectorAll('.tts-cell.active-cell');
     cells.forEach(cell => {
       bindTouchClick(cell, () => {
         const r = parseInt(cell.dataset.r);
         const c = parseInt(cell.dataset.c);
         this.selectCell(r, c);
+        this.focusHiddenInput();
       });
     });
 
@@ -878,21 +899,15 @@ class CrosswordTTSGame {
         if (w) {
           this.selectedWordId = wId;
           this.selectCell(w.r, w.c);
+          this.focusHiddenInput();
         }
       });
     });
 
-    const keyBtns = this.container.querySelectorAll('.tts-key-btn');
-    keyBtns.forEach(btn => {
-      bindTouchClick(btn, () => {
-        const key = btn.dataset.key;
-        if (key === 'BACKSPACE') {
-          this.handleBackspace();
-        } else {
-          this.handleInputLetter(key);
-        }
-      });
-    });
+    const btnKbd = this.container.querySelector('#btn-tts-focus-kbd');
+    if (btnKbd) {
+      bindTouchClick(btnKbd, () => this.focusHiddenInput());
+    }
 
     const btnHint = this.container.querySelector('#btn-tts-hint');
     bindTouchClick(btnHint, () => this.giveHint());
@@ -912,6 +927,13 @@ class CrosswordTTSGame {
     document.addEventListener('keydown', this.keyHandler);
 
     this.selectCell(0, 0);
+  }
+
+  focusHiddenInput() {
+    const input = this.container.querySelector('#tts-hidden-input');
+    if (input) {
+      input.focus();
+    }
   }
 
   selectCell(r, c) {
