@@ -233,6 +233,20 @@ class MemoryQuestApp {
     }
   }
 
+  toggleModal(modalElement, show) {
+    if (!modalElement) return;
+    if (show) {
+      modalElement.classList.add('active');
+      document.body.classList.add('modal-open');
+    } else {
+      modalElement.classList.remove('active');
+      const anyActive = document.querySelector('.comic-modal-backdrop.active');
+      if (!anyActive) {
+        document.body.classList.remove('modal-open');
+      }
+    }
+  }
+
   bindEvents() {
     // Global Mobile Audio Unlocker on First Touch/Tap
     const unlockAudioOnTouch = () => {
@@ -265,7 +279,7 @@ class MemoryQuestApp {
     if (this.btnAcceptStarkMission) {
       this.btnAcceptStarkMission.addEventListener('click', () => {
         this.sound.playThwipSFX();
-        this.modalStarkBriefing.classList.remove('active');
+        this.toggleModal(this.modalStarkBriefing, false);
         this.startMission();
       });
     }
@@ -296,7 +310,7 @@ class MemoryQuestApp {
     // 5. Continue Mission after Polaroid Reveal
     this.btnContinueMission.addEventListener('click', () => {
       this.sound.playThwipSFX();
-      this.modalPolaroid.classList.remove('active');
+      this.toggleModal(this.modalPolaroid, false);
 
       if (this.unlockedCount >= this.totalCapsules) {
         this.showGrandFinale();
@@ -325,7 +339,7 @@ class MemoryQuestApp {
       this.generateAndOpenCertificate();
     });
     this.btnCloseCert.addEventListener('click', () => {
-      this.modalCertificate.classList.remove('active');
+      this.toggleModal(this.modalCertificate, false);
     });
     this.btnDownloadCert.addEventListener('click', () => {
       this.downloadCertificateImage();
@@ -343,7 +357,7 @@ class MemoryQuestApp {
       }
     });
     this.btnCloseEasterEgg.addEventListener('click', () => {
-      this.modalEasterEgg.classList.remove('active');
+      this.toggleModal(this.modalEasterEgg, false);
     });
 
     // Lightbox Photo Click Handlers
@@ -352,7 +366,7 @@ class MemoryQuestApp {
       this.sound.playSparkleSFX();
       this.lightboxFullImg.src = imgSrc;
       this.lightboxCaption.textContent = captionText || 'MEMORI PHOTO';
-      this.modalPhotoLightbox.classList.add('active');
+      this.toggleModal(this.modalPhotoLightbox, true);
     };
     this.openLightbox = openLightbox;
 
@@ -374,7 +388,7 @@ class MemoryQuestApp {
     if (this.btnCloseLightbox) {
       this.btnCloseLightbox.addEventListener('click', () => {
         this.sound.playClickSFX();
-        this.modalPhotoLightbox.classList.remove('active');
+        this.toggleModal(this.modalPhotoLightbox, false);
       });
     }
 
@@ -434,7 +448,7 @@ class MemoryQuestApp {
       if (b2) b2.textContent = letter.bodyParagraph2;
       if (b3) b3.textContent = letter.bodyParagraph3;
     }
-    this.modalStarkBriefing.classList.add('active');
+    this.toggleModal(this.modalStarkBriefing, true);
   }
 
   startMission() {
@@ -458,7 +472,7 @@ class MemoryQuestApp {
       confetti({ particleCount: 70, spread: 80, origin: { y: 0.5 } });
     }
 
-    this.modalEasterEgg.classList.add('active');
+    this.toggleModal(this.modalEasterEgg, true);
   }
 
   renderProgressTracker() {
@@ -516,7 +530,7 @@ class MemoryQuestApp {
     const onComplete = () => {
       if (completed) return;
       completed = true;
-      this.modalMiniGame.classList.remove('active');
+      this.toggleModal(this.modalMiniGame, false);
       
       // Proceed to the romantic memory question before unlocking the capsule!
       setTimeout(() => {
@@ -545,7 +559,7 @@ class MemoryQuestApp {
         gameInstance = new window.MiniGames.CrosswordTTSGame(this.miniGameViewport, onComplete);
     }
 
-    this.modalMiniGame.classList.add('active');
+    this.toggleModal(this.modalMiniGame, true);
     gameInstance.start();
   }
 
@@ -571,7 +585,7 @@ class MemoryQuestApp {
       this.quizOptions.appendChild(btn);
     });
 
-    this.modalQuiz.classList.add('active');
+    this.toggleModal(this.modalQuiz, true);
   }
 
   handleAnswerSelect(selectedIndex, correctIndex) {
@@ -582,7 +596,7 @@ class MemoryQuestApp {
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.6 } });
       }
 
-      this.modalQuiz.classList.remove('active');
+      this.toggleModal(this.modalQuiz, false);
       this.unlockCapsule(this.currentCapsuleIndex);
     } else {
       this.sound.playWrongSFX();
@@ -624,7 +638,7 @@ class MemoryQuestApp {
     // FEATURE #5: INIT SCRATCH-OFF FOIL CANVAS
     this.initScratchCanvas();
 
-    this.modalPolaroid.classList.add('active');
+    this.toggleModal(this.modalPolaroid, true);
   }
 
   // FEATURE #5: SCRATCH-OFF CANVAS IMPLEMENTATION
@@ -668,9 +682,28 @@ class MemoryQuestApp {
     canvas.onmousemove = (e) => { if (isScratching) { const pos = getPos(e); scratch(pos.x, pos.y); } };
     canvas.onmouseup = () => { isScratching = false; };
 
-    canvas.ontouchstart = (e) => { isScratching = true; const pos = getPos(e); scratch(pos.x, pos.y); };
-    canvas.ontouchmove = (e) => { if (isScratching) { const pos = getPos(e); scratch(pos.x, pos.y); } };
-    canvas.ontouchend = () => { isScratching = false; };
+    const handleTouchStart = (e) => {
+      if (e.cancelable) e.preventDefault();
+      isScratching = true;
+      const pos = getPos(e);
+      scratch(pos.x, pos.y);
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.cancelable) e.preventDefault();
+      if (isScratching) {
+        const pos = getPos(e);
+        scratch(pos.x, pos.y);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      isScratching = false;
+    };
+
+    canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+    canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
   }
 
   checkScratchProgress(ctx, canvas) {

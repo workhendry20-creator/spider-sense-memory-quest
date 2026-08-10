@@ -627,6 +627,13 @@ body {
   display: none;
 }
 
+/* FREEZE BACKGROUND SCROLL WHEN MODAL IS OPEN */
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
 /* POLAROID REVEAL CARD & SCRATCH CANVAS */
 .polaroid-frame {
   background: #FFF;
@@ -636,6 +643,7 @@ body {
   position: relative;
   transform: rotate(-1deg);
   margin-bottom: 20px;
+  touch-action: none !important;
 }
 
 .polaroid-tape {
@@ -658,6 +666,9 @@ body {
   background: #101010;
   margin-bottom: 14px;
   position: relative;
+  touch-action: none !important;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .polaroid-img-wrapper img {
@@ -674,6 +685,9 @@ body {
   height: 100%;
   cursor: crosshair;
   z-index: 5;
+  touch-action: none !important;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .polaroid-date-stamp {
