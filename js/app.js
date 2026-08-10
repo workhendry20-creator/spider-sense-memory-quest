@@ -851,73 +851,189 @@ class MemoryQuestApp {
 
   // FEATURE #4: CERTIFICATE GENERATOR & DOWNLOADER
   generateAndOpenCertificate() {
-    this.sound.playClickSFX();
+    this.sound.playSparkleSFX();
     const cert = this.data.certificate;
-
     const certCanvas = document.createElement('canvas');
-    certCanvas.width = 1000;
-    certCanvas.height = 700;
+    certCanvas.width = 1200;
+    certCanvas.height = 840;
     const ctx = certCanvas.getContext('2d');
 
-    // Background Paper & Halftone border
-    ctx.fillStyle = '#FFFDF5';
-    ctx.fillRect(0, 0, 1000, 700);
+    // 1. Rich Vintage Parchment Background with Gold Warm Gradient
+    const bgGrad = ctx.createLinearGradient(0, 0, 1200, 840);
+    bgGrad.addColorStop(0, '#FFFDF4');
+    bgGrad.addColorStop(0.5, '#FFFBF0');
+    bgGrad.addColorStop(1, '#FFF5E0');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, 1200, 840);
 
+    // 2. Halftone Accent Dots along edges
+    ctx.fillStyle = 'rgba(252, 215, 5, 0.12)';
+    for (let x = 15; x < 1200; x += 30) {
+      for (let y = 15; y < 840; y += 30) {
+        if (x < 50 || x > 1150 || y < 50 || y > 790) {
+          ctx.beginPath();
+          ctx.arc(x, y, 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    // 3. Double Outer Frame (Thick Dark + Metallic Gold + Crimson Ribbon Accent)
     ctx.strokeStyle = '#101010';
-    ctx.lineWidth = 12;
-    ctx.strokeRect(20, 20, 960, 660);
+    ctx.lineWidth = 14;
+    ctx.strokeRect(20, 20, 1160, 800);
+
+    ctx.strokeStyle = '#FCD705';
+    ctx.lineWidth = 6;
+    ctx.strokeRect(34, 34, 1132, 772);
 
     ctx.strokeStyle = '#E62429';
-    ctx.lineWidth = 6;
-    ctx.strokeRect(34, 34, 932, 632);
+    ctx.lineWidth = 3;
+    ctx.strokeRect(44, 44, 1112, 752);
 
-    // Header Title
-    ctx.font = 'bold 52px Bangers, cursive';
-    ctx.fillStyle = '#E62429';
-    ctx.textAlign = 'center';
-    ctx.fillText(cert.title, 500, 110);
+    // 4. Stylized Spider-Web Corner Accents (All 4 Corners)
+    const drawCornerWeb = (cx, cy, dirX, dirY) => {
+      ctx.save();
+      ctx.strokeStyle = 'rgba(230, 36, 41, 0.4)';
+      ctx.lineWidth = 2;
+      for (let r = 20; r <= 80; r += 20) {
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI / 2);
+        ctx.stroke();
+      }
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + dirX * 90, cy);
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx, cy + dirY * 90);
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + dirX * 65, cy + dirY * 65);
+      ctx.stroke();
+      ctx.restore();
+    };
+    drawCornerWeb(46, 46, 1, 1);
+    drawCornerWeb(1154, 46, -1, 1);
+    drawCornerWeb(46, 794, 1, -1);
+    drawCornerWeb(1154, 794, -1, -1);
 
-    ctx.font = 'bold 24px Montserrat, sans-serif';
+    // 5. Header Banner Badge
+    ctx.font = '700 20px Montserrat, sans-serif';
     ctx.fillStyle = '#0476F2';
-    ctx.fillText("THIS OFFICIAL CERTIFICATE IS PROUDLY PRESENTED TO:", 500, 175);
+    ctx.textAlign = 'center';
+    ctx.fillText("STARK INDUSTRIES • AVENGERS INITIATIVE • SPIDER-VERSE HQ", 600, 95);
 
-    // Recipient Name
-    ctx.font = 'bold 64px Bangers, cursive';
+    // Main Certificate Header
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.25)';
+    ctx.shadowBlur = 6;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.font = '900 52px Bangers, cursive';
+    ctx.fillStyle = '#E62429';
+    ctx.fillText(cert.title, 600, 155);
+    ctx.restore();
+
+    ctx.font = '700 22px Montserrat, sans-serif';
+    ctx.fillStyle = '#444';
+    ctx.fillText("THIS DIPLOMA IS PROUDLY CONFERRED UPON", 600, 215);
+
+    // 6. Recipient Name Banner (JACKLYN TAMARA)
+    ctx.save();
+    ctx.shadowColor = 'rgba(230, 36, 41, 0.4)';
+    ctx.shadowBlur = 12;
+    ctx.font = '900 76px Bangers, cursive';
+
+    // Gold fill with dark stroke
+    ctx.fillStyle = '#FCD705';
+    ctx.strokeStyle = '#101010';
+    ctx.lineWidth = 4;
+    ctx.strokeText(cert.recipientName, 600, 310);
+    ctx.fillText(cert.recipientName, 600, 310);
+    ctx.restore();
+
+    // Golden Decorative Line under name
+    ctx.strokeStyle = '#FCD705';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(350, 335);
+    ctx.lineTo(850, 335);
+    ctx.stroke();
+
+    // 7. Title Granted
+    ctx.font = '900 26px Montserrat, sans-serif';
+    ctx.fillStyle = '#E62429';
+    ctx.fillText(cert.titleGiven, 600, 395);
+
+    // 8. Citation Text
+    ctx.font = '700 italic 22px "Comic Neue", cursive, sans-serif';
+    ctx.fillStyle = '#222';
+    ctx.fillText("Certified across the Multiverse for bringing immense joy, endless warmth,", 600, 460);
+    ctx.fillText("unforgettable memories, and unconditional love as the #1 Superhero Partner in Life.", 600, 495);
+
+    // 9. Left Seal: 100% Official Gold Wax Medallion
+    ctx.save();
+    const sealX = 240;
+    const sealY = 650;
+
+    // Outer Scalloped Rays
     ctx.fillStyle = '#FCD705';
     ctx.strokeStyle = '#101010';
     ctx.lineWidth = 3;
-    ctx.strokeText(cert.recipientName, 500, 270);
-    ctx.fillText(cert.recipientName, 500, 270);
+    for (let i = 0; i < 24; i++) {
+      const angle = (i * Math.PI) / 12;
+      const x1 = sealX + Math.cos(angle) * 72;
+      const y1 = sealY + Math.sin(angle) * 72;
+      ctx.beginPath();
+      ctx.arc(x1, y1, 10, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+    }
 
-    // Title Given
-    ctx.font = 'bold 26px Montserrat, sans-serif';
-    ctx.fillStyle = '#101010';
-    ctx.fillText(cert.titleGiven, 500, 340);
-
-    // Description text
-    ctx.font = 'italic 20px "Comic Neue", cursive';
-    ctx.fillText("Certified across the Spider-Verse for bringing immense joy, endless smiles,", 500, 410);
-    ctx.fillText("and unconditional love as the #1 Superhero Partner in Life.", 500, 440);
-
-    // Stamp Seal
+    // Inner Circle
     ctx.beginPath();
-    ctx.arc(200, 560, 55, 0, Math.PI * 2);
-    ctx.fillStyle = '#FCD705';
+    ctx.arc(sealX, sealY, 65, 0, Math.PI * 2);
+    ctx.fillStyle = '#E62429';
     ctx.fill();
-    ctx.strokeStyle = '#101010';
-    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#FCD705';
+    ctx.lineWidth = 5;
     ctx.stroke();
 
-    ctx.font = 'bold 18px Bangers, cursive';
-    ctx.fillStyle = '#E62429';
-    ctx.fillText("OFFICIAL SEAL", 200, 565);
+    ctx.font = '900 18px Bangers, cursive';
+    ctx.fillStyle = '#FCD705';
+    ctx.textAlign = 'center';
+    ctx.fillText("OFFICIAL SEAL", sealX, sealY - 15);
 
-    // Signatures
-    ctx.font = 'bold 22px Permanent Marker, cursive';
+    ctx.font = '900 28px Bangers, cursive';
+    ctx.fillStyle = '#FFF';
+    ctx.fillText("★ 100% ★", sealX, sealY + 12);
+
+    ctx.font = '700 13px Montserrat, sans-serif';
+    ctx.fillStyle = '#FCD705';
+    ctx.fillText("SUPERHERO APPROVED", sealX, sealY + 35);
+    ctx.restore();
+
+    // 10. Right Signatures & Verification ID
+    ctx.textAlign = 'center';
+
+    // Signature 1
+    ctx.font = '700 26px "Permanent Marker", cursive';
     ctx.fillStyle = '#101010';
-    ctx.fillText(cert.signatory, 700, 560);
-    ctx.font = 'bold 16px Montserrat, sans-serif';
-    ctx.fillText(`ID: ${cert.certificateNumber}`, 700, 590);
+    ctx.fillText("Peter Parker 🕷️ & Hendry ✍️", 860, 640);
+
+    ctx.strokeStyle = '#101010';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(680, 655);
+    ctx.lineTo(1040, 655);
+    ctx.stroke();
+
+    ctx.font = '700 16px Montserrat, sans-serif';
+    ctx.fillStyle = '#555';
+    ctx.fillText("AUTHORIZED SPIDER-VERSE SIGNATORIES", 860, 680);
+
+    ctx.font = '900 15px monospace';
+    ctx.fillStyle = '#0476F2';
+    ctx.fillText(`VERIFICATION CODE: ${cert.certificateNumber}`, 860, 708);
 
     // Render Preview Canvas
     const previewCanvas = document.getElementById('certificate-canvas-preview');
@@ -927,7 +1043,7 @@ class MemoryQuestApp {
     pCtx.drawImage(certCanvas, 0, 0);
 
     this.certCanvasData = certCanvas;
-    this.modalCertificate.classList.add('active');
+    this.toggleModal(this.modalCertificate, true);
   }
 
   downloadCertificateImage() {

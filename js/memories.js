@@ -143,7 +143,7 @@ window.MEMORY_QUEST_DATA = {
 
 Semoga di usia baru ini, setiap harimu selalu dipenuhi banyak kejutan manis, keberhasilan besar, petualangan seru, dan senyuman yang nggak pernah pudar. I love you 3000 and across the Spider-Verse! ❤️🕷️✨`,
     giftHeadline: "🎁 MISI TERAKHIR: PETUNJUK KADO FISIK RAHASIA UNLOCKED!",
-    giftClue: "Sensasi Spider-Sense meyakinkan kalau kado fisiknya sudah mendarat selamat di dunia nyata! Coba periksa meja/tempat favoritmu, atau tanyakan langsung pada Web-Slinger di dekatmu sekarang!",
+    giftClue: "NANTI AJA YAA KADO NYA PAS SC HEHE",
     giftSecretPasscode: "JACKLYN-SPIDEY-2026",
     giftImage: "assets/gift_box.png"
   },
