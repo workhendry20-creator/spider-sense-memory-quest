@@ -1474,74 +1474,229 @@ button, input, select, canvas, .memory-card, .floating-target, .dial-card, .btn-
 
 @media (max-width: 600px) {
   body {
-    font-size: 14px;
+    font-size: 13.5px;
   }
 
-  .comic-modal-backdrop {
+  #app-container {
+    border-left: none;
+    border-right: none;
+  }
+
+  .comic-navbar {
+    padding: 8px 12px;
+    border-bottom-width: 3px;
+  }
+
+  .brand-title {
+    font-size: 1.35rem;
+    letter-spacing: 0.5px;
+  }
+
+  .issue-badge {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    border-width: 2px;
+  }
+
+  .btn-icon {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-width: 2px;
+  }
+
+  #landing-view, #countdown-view {
+    padding: 16px 10px;
+  }
+
+  .comic-cover-panel, .countdown-box {
+    padding: 18px 14px;
+    border-width: 4px;
+    box-shadow: 6px 6px 0 var(--comic-dark);
+  }
+
+  .comic-stamp {
+    font-size: 0.95rem;
+    padding: 4px 10px;
+    border-width: 2px;
+    margin-bottom: 10px;
+  }
+
+  .hero-main-header {
+    font-size: 2.2rem;
+    line-height: 1.05;
+    margin-bottom: 4px;
+    text-shadow: 2px 2px 0 var(--comic-yellow), 4px 4px 0 var(--comic-dark);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+  }
+
+  .comic-desc-bubble {
+    font-size: 0.92rem;
+    line-height: 1.4;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    border-width: 2px;
+  }
+
+  .btn-primary-comic {
+    font-size: 1.15rem;
+    padding: 10px 18px;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--comic-dark);
+  }
+
+  #game-view {
     padding: 10px;
   }
 
-  .modal-comic-box {
-    padding: 16px 12px;
-    border-width: 4px;
-    box-shadow: 6px 6px 0 var(--comic-dark);
-    max-height: 94vh;
+  .progress-card {
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border-width: 3px;
+    box-shadow: 4px 4px 0 var(--comic-dark);
   }
 
-  .minigame-title {
-    font-size: 1.5rem;
-  }
-
-  .minigame-sub {
-    font-size: 0.95rem;
-  }
-
-  .minigame-score-badge {
-    font-size: 1.1rem;
-    padding: 3px 10px;
-  }
-
-  .quiz-question-text {
+  .progress-title {
     font-size: 1.15rem;
   }
 
-  .quiz-opt-btn {
+  .capsule-tracker-bar {
+    gap: 6px;
+  }
+
+  .capsule-badge-slot {
+    width: 34px;
+    height: 34px;
     font-size: 1rem;
-    padding: 10px;
+    border-width: 2px;
+  }
+
+  .mission-center-panel {
+    padding: 16px 12px;
+    margin-bottom: 12px;
+    border-width: 3px;
+    box-shadow: 5px 5px 0 var(--comic-dark);
+  }
+
+  .radar-wrapper {
+    width: 130px;
+    height: 130px;
+    margin: 10px 0 15px;
+  }
+
+  .spider-sense-btn-core {
+    width: 90px;
+    height: 90px;
+    border-width: 3px;
+  }
+
+  .spider-sense-btn-core span {
+    font-size: 1.8rem;
+  }
+
+  .comic-modal-backdrop {
+    padding: 8px;
+  }
+
+  .modal-comic-box {
+    padding: 14px 12px;
+    border-width: 4px;
+    box-shadow: 6px 6px 0 var(--comic-dark);
+    max-height: 92vh;
+  }
+
+  .minigame-title {
+    font-size: 1.35rem;
+  }
+
+  .minigame-sub {
+    font-size: 0.9rem;
+  }
+
+  .minigame-score-badge {
+    font-size: 1rem;
+    padding: 3px 8px;
+  }
+
+  .quiz-question-text {
+    font-size: 1.05rem;
+  }
+
+  .quiz-opt-btn {
+    font-size: 0.95rem;
+    padding: 8px 10px;
   }
 
   .opt-prefix {
-    width: 26px;
-    height: 26px;
-    font-size: 1rem;
-  }
-
-  .arcade-arena {
-    height: 240px;
-  }
-
-  .floating-target {
-    width: 60px;
-    height: 60px;
-    font-size: 2.2rem;
-  }
-
-  .notif-boom-icon {
-    font-size: 3rem;
-  }
-
-  .notif-comic-bubble {
-    font-size: 1.4rem;
-    padding: 6px 14px;
-  }
-
-  .notif-subtext {
+    width: 24px;
+    height: 24px;
     font-size: 0.95rem;
   }
 
+  .arcade-arena {
+    height: 210px;
+  }
+
+  .floating-target {
+    width: 52px;
+    height: 52px;
+    font-size: 1.8rem;
+  }
+
+  .notif-boom-icon {
+    font-size: 2.5rem;
+  }
+
+  .notif-comic-bubble {
+    font-size: 1.25rem;
+    padding: 6px 12px;
+  }
+
+  .notif-subtext {
+    font-size: 0.9rem;
+  }
+
   .notif-action-btn {
-    font-size: 1.1rem;
-    padding: 8px 16px;
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  .finale-box {
+    padding: 16px 10px;
+    border-width: 4px;
+    box-shadow: 6px 6px 0 var(--comic-dark);
+  }
+
+  .finale-header {
+    font-size: 2rem;
+    margin-bottom: 4px;
+  }
+
+  .finale-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+
+  .cake-widget, .communicator-widget, .gift-section {
+    padding: 12px 10px;
+    margin-bottom: 14px;
+    border-width: 3px;
+  }
+
+  .romantic-letter {
+    padding: 14px 12px;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    border-width: 3px;
+  }
+
+  .stark-briefing-box {
+    padding: 14px 10px !important;
+    border-width: 4px !important;
   }
 
   .tts-clues-container {
