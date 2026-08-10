@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Spider-Sense Memory Quest: Brand New Day Edition</title>
+
+  <!-- Meta Descriptions & SEO -->
+  <meta name="description"
+    content="A romantic retro comic book styled Spider-Sense Memory Quest birthday experience for Jacklyn Tamara.">
+  <meta name="theme-color" content="#E62429">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,700&family=Montserrat:wght@700;900&family=Permanent+Marker&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Feature #2: Global Interactive Web Shooter Canvas -->
+  <canvas id="web-shooter-canvas"></canvas>
+
+  <!-- Main Application Wrapper -->
+  <div id="app-container">
+
+    <!-- Top Comic Navigation Bar -->
+    <header class="comic-navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span id="issue-badge" class="issue-badge" title="Double tap for Easter Egg!">ISSUE #24</span>
+        <h1 class="brand-title">SPIDER-SENSE QUEST</h1>
+      </div>
+      <button id="btn-audio-toggle" class="btn-icon" aria-label="Toggle Audio">
+        <span id="audio-icon">🔊 MUSIC</span>
+      </button>
+    </header>
+
+    <!-- Feature #7: COUNTDOWN MISSION LOCK VIEW -->
+    <section id="countdown-view" style="background-image: url('assets/city_bg.png');">
+      <div class="countdown-box">
+        <div class="comic-stamp">MISSION LOCKED</div>
+        <h2 class="hero-main-header">BRAND NEW DAY</h2>
+        <h3 class="hero-subtitle">LOCKS IN FOR JACKLYN'S BIRTHDAY MIDNIGHT</h3>
+
+        <div class="clock-digits-container">
+          <div class="clock-unit">
+            <div id="clock-days" class="clock-val">00</div>
+            <div class="clock-lbl">HARI</div>
+          </div>
+          <div class="clock-unit">
+            <div id="clock-hours" class="clock-val">00</div>
+            <div class="clock-lbl">JAM</div>
+          </div>
+          <div class="clock-unit">
+            <div id="clock-minutes" class="clock-val">00</div>
+            <div class="clock-lbl">MENIT</div>
+          </div>
+          <div class="clock-unit">
+            <div id="clock-seconds" class="clock-val">00</div>
+            <div class="clock-lbl">DETIK</div>
+          </div>
+        </div>
+
+        <p style="font-weight: 700; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.4;">
+          Eits, tahan dulu Superhero! 🛑 Sinyal Spider-Sense lagi melakukan sinkronisasi frekuensi ulang tahun Jacklyn
+          Tamara! Tepat tengah malam (00:00), gerbang Multiverse Memori akan terbuka secara otomatis!
+        </p>
+
+        <button id="btn-bypass-lock" class="btn-primary-comic" style="font-size: 1.2rem; padding: 10px 20px;">
+          ⚡ TEST BYPASS LOCK
+        </button>
+      </div>
+    </section>
+
+    <!-- 1. LANDING PAGE (Comic Cover View) -->
+    <main id="landing-view" style="background-image: url('assets/city_bg.png');">
+      <div class="comic-cover-panel">
+        <div class="comic-stamp">SPECIAL BIRTHDAY EDITION</div>
+
+        <h2 class="hero-main-header">BRAND NEW DAY</h2>
+        <h3 class="hero-subtitle">SPIDER-SENSE MEMORY QUEST</h3>
+
+        <div class="comic-desc-bubble">
+          "Waduh, panggilan darurat dari Flowers City! 🕷️⚡ Spider-Sense-ku mendadak bergetar hebat ngedeteksi
+          gelombang energi ulang tahun Jacklyn Tamara! Ada 4 Kapsul Memori Rahasia yang terkunci di sudut-sudut kota.
+          Sebagai Superhero Partner kesayangan Spidey, tugasmu adalah menuntaskan semua tantangan minigame, memecahkan
+          teka-teki memori, dan mengklaim kado fisik rahasia di dunia nyata, tagih aja tapi nanti yaa! Ready to swing?"
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+          <button id="btn-open-stark-letter" class="btn-primary-comic"
+            style="background: #00F0FF; color: #0A1128; font-size: 1.15rem; width: 100%; justify-content: center;">
+            <span>📑 SURAT RAHASIA STARK INDUSTRIES</span>
+          </button>
+
+          <button id="btn-start-mission" class="btn-primary-comic" style="width: 100%; justify-content: center;">
+            <span>⚡ START MISSION</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- 2. GAME MAIN VIEW (NYC Mission Center) -->
+    <section id="game-view" style="background-image: url('assets/city_bg.png');">
+
+      <!-- Progress Tracker Card -->
+      <div class="progress-card">
+        <div>
+          <div class="progress-title">MISSION CAPSULES</div>
+          <div id="progress-counter-text" style="font-weight: 700; font-size: 0.95rem; color: #555;">0/4 CAPSULES</div>
+        </div>
+        <div id="progress-tracker-bar" class="capsule-tracker-bar">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Center Mission Panel -->
+      <div class="mission-center-panel">
+        <div class="comic-stamp">CITY SIGNAL RADAR</div>
+        <h3 id="mission-status-text"
+          style="font-family: var(--font-header); font-size: 1.6rem; color: var(--comic-red); margin-top: 5px;">
+          MISI AKTIF: DETEKSI CAPSULE-ALPHA
+        </h3>
+
+        <!-- Animated Radar Trigger -->
+        <div id="radar-trigger" class="radar-wrapper">
+          <div class="radar-circle"></div>
+          <div class="radar-pulse"></div>
+          <div class="spider-sense-btn-core">
+            <span>🕷️</span>
+            <label>PULSE</label>
+          </div>
+        </div>
+
+        <p
+          style="font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; color: var(--comic-dark); line-height: 1.4;">
+          Sinyal radar berkedap-kedip di atas langit kota! 🏙️ Tap layar atau tombol di bawah untuk menembak jaring
+          Spidey & memicu getaran Spider-Sense!
+        </p>
+
+        <button id="btn-trigger-sense" class="btn-primary-comic">
+          ⚡ TRIGGER SPIDER-SENSE
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Spider-Sense Full Screen Overlay -->
+    <div id="spidersense-overlay" class="spidersense-overlay">
+      <div class="spidersense-lines"></div>
+      <div class="spidersense-text-banner">⚡ SPIDER-SENSE TINGLING! ⚡</div>
+    </div>
+
+    <!-- FEATURE: MARVEL STUDIOS INTRO FLIP ANIMATION OVERLAY -->
+    <div id="marvel-intro-overlay" class="marvel-intro-overlay">
+      <div class="marvel-flip-box">
+        <div class="marvel-studio-badge">
+          <div class="marvel-logo-box">MARVEL</div>
+          <div class="marvel-sub-box">STUDIOS</div>
+        </div>
+        <div class="marvel-protocol-title">STARK INDUSTRIES • AVENGERS HQ</div>
+        <div class="marvel-pulse-bar">INITIATING CLASSIFIED BIRTHDAY PROTOCOL...</div>
+      </div>
+    </div>
+
+    <!-- STARK INDUSTRIES CLASSIFIED MISSION BRIEFING MODAL -->
+    <div id="modal-stark-briefing" class="comic-modal-backdrop">
+      <div class="modal-comic-box stark-briefing-box"
+        style="max-width: 680px; border-color: #00F0FF; background: #0A1128; color: #FFF;">
+
+        <div class="stark-header-bar">
+          <!-- Official Avengers SVG Logo -->
+          <div class="avengers-logo-wrapper">
+            <svg class="avengers-svg-logo" viewBox="0 0 100 100" width="46" height="46">
+              <circle cx="50" cy="50" r="44" stroke="#00F0FF" stroke-width="6" fill="#0A1128" />
+              <path d="M 50 12 L 78 84 L 62 84 L 54 58 L 38 58 L 50 12 Z M 44 44 L 50 22 L 56 44 Z" fill="#00F0FF" />
+              <path d="M 24 50 L 82 50 L 74 60 L 24 60 Z" fill="#FCD705" />
+            </svg>
+          </div>
+          <div style="text-align: left; flex: 1;">
+            <div
+              style="font-family: var(--font-header); font-size: 1.35rem; color: #00F0FF; letter-spacing: 1px; display: flex; align-items: center; gap: 6px;">
+              <span>AVENGERS INITIATIVE</span>
+            </div>
+            <div id="stark-protocol-code" style="font-size: 0.85rem; color: #A0C0F0; font-weight: 700;">
+              STARK-AVENGERS-PROTOCOL #2026-JT</div>
+          </div>
+          <div class="comic-stamp" style="background: var(--comic-red); color: #FFF;">EYES ONLY</div>
+        </div>
+
+        <div class="stark-letter-content">
+          <div
+            style="display: flex; justify-content: space-between; border-bottom: 2px dashed #00F0FF; padding-bottom: 10px; margin-bottom: 15px; font-size: 0.95rem;">
+            <div><strong>RECIPIENT:</strong> <span id="stark-recipient"
+                style="color: #FCD705; font-family: var(--font-header);">AGENT JACKLYN TAMARA</span></div>
+            <div><strong>SECURITY:</strong> <span style="color: #00F0FF; font-weight: bold;">LEVEL 5 CLEARANCE</span>
+            </div>
+          </div>
+
+          <h3 id="stark-salutation"
+            style="font-family: var(--font-header); font-size: 1.5rem; color: #FCD705; margin-bottom: 12px;">
+            DEAR AGENT JACKLYN TAMARA,
+          </h3>
+
+          <p id="stark-body-1" style="font-size: 1.05rem; line-height: 1.5; margin-bottom: 12px; color: #E0EBF8;">
+            Sistem radar Arc Reactor dan A.I. F.R.I.D.A.Y. baru saja mendeteksi lonjakan energi ulang tahun dalam
+            frekuensi luar biasa pada koordinat hatimu hari ini!
+          </p>
+
+          <p id="stark-body-2" style="font-size: 1.05rem; line-height: 1.5; margin-bottom: 12px; color: #E0EBF8;">
+            Misi rahasia 'Brand New Day' secara resmi diaktifkan. 4 Kapsul Memori Vital berisi momen-momen paling indah
+            milikmu dan Web-Slinger pribadi (Peter Parker) telah disembunyikan di sudut kota dengan enkripsi
+            Spider-Sense tingkat tinggi.
+          </p>
+
+          <p id="stark-body-3" style="font-size: 1.05rem; line-height: 1.5; margin-bottom: 18px; color: #E0EBF8;">
+            Hanya KAMU—satu-satunya Superhero Partner berlisensi di Multiverse ini—yang memiliki akses dekripsi untuk
+            memecahkan minigame ini, membuka pesan rahasia, dan mengklaim kado fisik di dunia nyata. Prove to the
+            Avengers that you're the ultimate superhero partner!
+          </p>
+
+          <div
+            style="text-align: right; font-family: 'Permanent Marker', cursive; font-size: 1.25rem; color: #00F0FF; margin-bottom: 15px;">
+            — Hendry✍️
+          </div>
+        </div>
+
+        <button id="btn-accept-stark-mission" class="btn-primary-comic"
+          style="width: 100%; justify-content: center; background: #00F0FF; color: #0A1128; font-size: 1.25rem;">
+          ⚡ SAYA SIAP TERIMA MISI STARK INDUSTRIES!
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. QUIZ & MINI-GAME MODALS -->
+    <div id="modal-quiz" class="comic-modal-backdrop">
+      <div class="modal-comic-box">
+        <div id="quiz-tag" class="modal-header-tag">CAPSULE-ALPHA</div>
+        <h3 id="quiz-question" class="quiz-question-text">Pertanyaan kuis akan muncul di sini...</h3>
+
+        <div id="quiz-options" class="quiz-options-grid">
+          <!-- Options populated by JS -->
+        </div>
+
+        <div id="quiz-hint-box" class="hint-box">
+          Petunjuk Spider-Sense...
+        </div>
+
+        <button id="btn-show-hint" class="btn-icon" style="width: 100%; justify-content: center; background: #FFF;">
+          💡 Minta Petunjuk Spider-Sense
+        </button>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE MINI-GAME MODAL CONTAINER -->
+    <div id="modal-minigame" class="comic-modal-backdrop">
+      <div class="modal-comic-box" style="max-width: 600px;">
+        <div id="minigame-viewport">
+          <!-- Populated by JS MiniGames -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 4. POLAROID MEMORY UNLOCK MODAL (With Scratch Canvas) -->
+    <div id="modal-polaroid" class="comic-modal-backdrop">
+      <div class="modal-comic-box">
+        <div class="comic-stamp" style="margin-bottom: 10px;">CAPSULE UNLOCKED!</div>
+
+        <!-- Polaroid Photo Frame & Feature #5: Scratch-Off Foil -->
+        <div class="polaroid-frame">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-img-wrapper" id="polaroid-img-container" style="cursor: pointer;"
+            title="Klik untuk lihat foto versi penuh!">
+            <img id="polaroid-photo" src="" alt="Memory Photo">
+            <!-- Scratch Canvas Layer -->
+            <canvas id="scratch-canvas"></canvas>
+          </div>
+          <div id="polaroid-date-label" class="polaroid-date-stamp">MEMORI #01 • COFFEE & LAUGHTER</div>
+          <div style="font-size: 0.85rem; font-weight: bold; text-align: center; margin-top: 4px; color: #555;">🔍 Klik
+            foto untuk membuka tampilan layar penuh (Full Size)</div>
+        </div>
+
+        <!-- Scratch Prompt Banner -->
+        <div id="scratch-prompt-banner" class="comic-stamp"
+          style="background: var(--comic-yellow); color: #101010; width: 100%; margin-bottom: 15px; text-align: center; font-size: 1.05rem; animation: pulse 1s infinite alternate;">
+          ✨ GOSOK SEMUA FOIL RAHASIA UNTUK MEMBUKA MEMORI!
+        </div>
+
+        <!-- Note Speech Card (Initially Hidden Until Scratched) -->
+        <div class="note-box" id="polaroid-note-box" style="display: none;">
+          <h4 id="polaroid-note-heading">Kamu Bikin Semuanya Terasa Lebih Cerah ☕❤️</h4>
+          <p id="polaroid-note-text">Catatan manis...</p>
+        </div>
+
+        <button id="btn-continue-mission" class="btn-primary-comic"
+          style="width: 100%; justify-content: center; display: none;">
+          THWIP TO NEXT CAPSULE 🕸️
+        </button>
+      </div>
+    </div>
+
+    <!-- Feature #6: SECRET EASTER EGG VAULT (#05) MODAL -->
+    <div id="modal-easter-egg" class="comic-modal-backdrop">
+      <div class="modal-comic-box" style="border-color: #FCD705; background: #FFFDF0;">
+        <div class="comic-stamp" style="background: #FCD705; color: #101010;">🕵️‍♂️ SECRET VAULT #05 UNLOCKED!</div>
+
+        <div class="polaroid-frame">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-img-wrapper" id="easter-egg-img-container" style="cursor: pointer;"
+            title="Klik untuk lihat foto versi penuh!">
+            <img id="easter-egg-photo" src="assets/easteregg.png" alt="Secret Memory">
+          </div>
+          <div class="polaroid-date-stamp" style="color: #FCD705; text-shadow: 1px 1px 0 #101010;">SECRET EASTER EGG
+            MEMORY</div>
+          <div style="font-size: 0.85rem; font-weight: bold; text-align: center; margin-top: 4px; color: #555;">🔍 Klik
+            foto untuk membuka tampilan layar penuh (Full Size)</div>
+        </div>
+
+        <div class="note-box" style="border-color: #FCD705;">
+          <h4 id="easter-egg-heading">Memori Rahasia Khusus Jacklyn 💛</h4>
+          <p id="easter-egg-text">Pesan rahasia...</p>
+        </div>
+
+        <button id="btn-close-easter-egg" class="btn-primary-comic"
+          style="width: 100%; justify-content: center; background: #FCD705; color: #101010;">
+          TUTUP VAULT RAHASIA 🔒
+        </button>
+      </div>
+    </div>
+
+    <!-- 5. FULL-IMAGE LIGHTBOX MODAL -->
+    <div id="modal-photo-lightbox" class="comic-modal-backdrop" style="z-index: 6000;">
+      <div class="modal-comic-box" style="max-width: 90vw; max-height: 92vh; text-align: center; padding: 20px;">
+        <button type="button" id="btn-close-lightbox" class="btn-skip-minigame"
+          style="position: absolute; top: 12px; right: 12px; background: var(--comic-red); color: #FFF; font-size: 1.1rem; padding: 6px 12px; z-index: 10; border-radius: 6px; cursor: pointer;">
+          ✖ TUTUP
+        </button>
+        <img id="lightbox-full-img" src="" alt="Full Memory Photo"
+          style="max-width: 100%; max-height: 75vh; object-fit: contain; border: 4px solid var(--comic-dark); box-shadow: 6px 6px 0 var(--comic-dark); border-radius: 6px;">
+        <div id="lightbox-caption"
+          style="font-family: var(--font-header); font-size: 1.4rem; color: #101010; margin-top: 12px;">
+          MEMORI PHOTO
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature #4: OFFICIAL SUPERHERO CERTIFICATE MODAL -->
+    <div id="modal-certificate" class="comic-modal-backdrop">
+      <div class="modal-comic-box" style="max-width: 720px;">
+        <div class="comic-stamp">CERTIFICATE PREVIEW</div>
+
+        <canvas id="certificate-canvas-preview"></canvas>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <button id="btn-download-cert" class="btn-primary-comic"
+            style="flex: 1; justify-content: center; font-size: 1.3rem;">
+            💾 UNDUH SERTIFIKAT (PNG)
+          </button>
+          <button id="btn-close-cert" class="btn-icon" style="padding: 12px 20px; font-size: 1.2rem;">
+            TUTUP
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. GRAND FINALE VIEW (Brand New Day Birthday Reveal) -->
+    <section id="finale-view" style="background-image: url('assets/city_bg.png');">
+      <div class="finale-box">
+        <h2 id="finale-hero-name" class="finale-header">HAPPY BIRTHDAY, JACKLYN!</h2>
+        <div id="finale-subheading" class="finale-subtitle">🎉 MISSION ACCOMPLISHED! ALL CAPSULES UNLOCKED! 🕸️</div>
+
+        <!-- Feature #1: Interactive Birthday Cake & Candle Blowing -->
+        <div id="birthday-cake-widget" class="cake-widget">
+          <div style="font-family: var(--font-header); font-size: 1.6rem; color: var(--comic-red);">
+            🎂 MAKE A WISH, MY SUPERHERO!
+          </div>
+          <div id="mic-status-badge" style="font-weight: 700; font-size: 0.95rem; margin-top: 4px; color: #555;">
+            🎤 DEKATKAN KE MIKROFON & TIUP SEKUAT TENAGA (ATAU TAP TOMBOL) UNTUK PADAMKAN LILIN!
+          </div>
+
+          <div class="cake-visual-wrapper">
+            <div class="candles-row">
+              <div class="candle-item">
+                <div class="candle-flame"></div>
+                <div class="candle-smoke"></div>
+                <div class="candle-stick"></div>
+              </div>
+              <div class="candle-item">
+                <div class="candle-flame"></div>
+                <div class="candle-smoke"></div>
+                <div class="candle-stick"></div>
+              </div>
+              <div class="candle-item">
+                <div class="candle-flame"></div>
+                <div class="candle-smoke"></div>
+                <div class="candle-stick"></div>
+              </div>
+            </div>
+            <div class="cake-body">
+              <div class="cake-frosting"></div>
+              <span
+                style="font-family: var(--font-header); color: #FFF; font-size: 1.4rem; z-index: 2; text-shadow: 2px 2px 0 #101010;">
+                HAPPY BIRTHDAY
+              </span>
+            </div>
+          </div>
+
+          <button id="btn-blow-candle" class="btn-icon" style="margin: 0 auto; background: var(--comic-yellow);">
+            💨 TIUP LILIN SEKARANG!
+          </button>
+        </div>
+
+        <!-- Feature #3: Spider-Communicator Voice Player Widget -->
+        <div id="voice-communicator-widget" class="communicator-widget">
+          <div class="communicator-header">
+            <div
+              style="font-family: var(--font-header); font-size: 1.4rem; color: var(--comic-yellow); display: flex; align-items: center; gap: 8px;">
+              <span>📻</span> SPIDER-COMMUNICATOR TRANSMISSION
+            </div>
+            <div id="voice-signal-led" class="signal-led"></div>
+          </div>
+          <p style="font-size: 0.95rem; color: #CCC; margin-bottom: 10px;">
+            🚨 Transmisi Pesan Suara Rahasia Masuk dari Web-Slinger Pribadimu (Peter Parker)
+          </p>
+
+          <audio id="voice-memo-audio" src="assets/voice_memo.mp3" preload="auto"></audio>
+
+          <div class="audio-controls-row">
+            <button id="btn-play-voice-memo" class="btn-primary-comic" style="font-size: 1.2rem; padding: 8px 18px;">
+              ▶️ PLAY VOICE TRANSMISSION
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Polaroid Gallery Grid -->
+        <div id="finale-gallery" class="gallery-grid">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- Main Romantic Birthday Message -->
+        <div id="finale-romantic-letter" class="romantic-letter">
+          Surat ucapan ulang tahun romantis...
+        </div>
+
+        <!-- Feature #4: Certificate Generator CTA -->
+        <button id="btn-open-certificate" class="btn-primary-comic"
+          style="width: 100%; justify-content: center; margin-bottom: 25px; background: #00D2FF; color: #101010;">
+          🎓 KLAIM SERTIFIKAT SUPERHERO RESMI SPIDER-VERSE
+        </button>
+
+        <!-- Physical Gift Unboxer Section -->
+        <div class="gift-section">
+          <h3 class="gift-title">🎁 SECRET PHYSICAL GIFT UNLOCKED!</h3>
+          <p style="font-size: 1.05rem; font-weight: 700; color: var(--comic-dark); line-height: 1.4;">
+            Sensasi Spider-Sense meyakinkan kalau kado fisiknya sudah disembunyikan di lokasi rahasia! Tap kotak kado di
+            bawah ini untuk mengklaim petunjuknya!
+          </p>
+
+          <div id="gift-box-wrapper" class="gift-box-wrapper">
+            <img src="assets/gift_box.png" alt="Mystery Gift Box">
+          </div>
+
+          <div id="gift-clue-box" class="gift-clue-box">
+            <div
+              style="color: var(--comic-red); font-family: var(--font-header); font-size: 1.4rem; margin-bottom: 6px;">
+              🔍 PETUNJUK KADO FISIK:</div>
+            <p id="gift-clue-text">Kado fisiknya sudah disembunyikan di tempat rahasia...</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/memories.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/minigames.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
