@@ -1615,18 +1615,13 @@ button, input, select, canvas, .memory-card, .floating-target, .dial-card, .btn-
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(0, 240, 255, 0.3);
   border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 15px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
   text-align: left;
-  max-height: 52vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  flex: 1;
 }
 
 #btn-accept-stark-mission {
   flex-shrink: 0;
-  margin-top: auto;
 }
 }
 

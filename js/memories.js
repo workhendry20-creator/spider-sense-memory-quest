@@ -20,11 +20,11 @@ window.MEMORY_QUEST_DATA = {
     subject: "SPECIAL BIRTHDAY MISSION: BRAND NEW DAY MEMORY QUEST",
     stampText: "STARK APPROVED • EYES ONLY",
     salutation: "DEAR AGENT JACKLYN TAMARA,",
-    bodyParagraph1: "Sistem radar Arc Reactor dan A.I. F.R.I.D.A.Y. baru saja mendeteksi lonjakan energi ulang tahun dalam frekuensi luar biasa pada koordinat hatimu hari ini!",
-    bodyParagraph2: "Misi rahasia 'Brand New Day' secara resmi diaktifkan. 4 Kapsul Memori Vital berisi momen-momen paling indah milikmu dan Web-Slinger pribadi (Peter Parker) telah disembunyikan di sudut kota dengan enkripsi Spider-Sense tingkat tinggi.",
-    bodyParagraph3: "Hanya KAMU—satu-satunya Superhero Partner berlisensi di Multiverse ini—yang memiliki akses dekripsi untuk memecahkan minigame ini, membuka pesan rahasia, dan mengklaim kado fisik di dunia nyata. Prove to the Avengers that you're the ultimate superhero partner!",
-    signatory: "Tony Stark & Peter Parker",
-    buttonText: "⚡ SAYA SIAP TERIMA MISI STARK INDUSTRIES!"
+    bodyParagraph1: "Radar Arc Reactor mendeteksi lonjakan energi ulang tahun luar biasa di koordinat hatimu hari ini!",
+    bodyParagraph2: "Misi rahasia 'Brand New Day' resmi aktif. 5 Kapsul Memori Vital telah disembunyikan di sudut kota.",
+    bodyParagraph3: "Sebagai Superhero Partner Spidey, pecahkan minigame & klaim hadiah fisikmu di dunia nyata. Ready to swing?",
+    signatory: "— Hendry✍️",
+    buttonText: "⚡ SAYA SIAP TERIMA MISI!"
   },
   
   // 1. COUNTDOWN LOCK SETTINGS
