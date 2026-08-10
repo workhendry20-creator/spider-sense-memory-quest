@@ -798,7 +798,7 @@ class CrosswordTTSGame {
 
       <div class="tts-wrapper">
         <!-- Hidden input to trigger native mobile/smartphone keyboard -->
-        <input type="text" id="tts-hidden-input" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" style="position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; top: -9999px; left: -9999px;">
+        <input type="text" id="tts-hidden-input" autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text" style="position: absolute; opacity: 0.01; font-size: 16px; border: 0; width: 100%; height: 1px; left: 0; bottom: 0; z-index: -1;">
 
         <div class="tts-grid-container" id="tts-grid">
           ${Array.from({ length: this.gridRows }).map((_, r) => `

@@ -125,7 +125,17 @@ class MemoryQuestApp {
     window.addEventListener('resize', resizeWebCanvas);
 
     document.addEventListener('click', (e) => {
-      // Don't trigger on interactive buttons if needed, but shoot webs everywhere!
+      // Ignore clicks inside modals, inputs, minigames, or interactive forms
+      if (
+        e.target.closest('.comic-modal-backdrop') ||
+        e.target.closest('.modal-comic-box') ||
+        e.target.closest('.tts-wrapper') ||
+        e.target.closest('.tts-cell') ||
+        e.target.closest('button') ||
+        e.target.closest('input')
+      ) {
+        return;
+      }
       this.shootWebLine(e.clientX, e.clientY);
     });
   }
