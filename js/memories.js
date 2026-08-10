@@ -49,7 +49,7 @@ window.MEMORY_QUEST_DATA = {
       correctIndex: 3, // 0-indexed (Option D)
       hint: "Petunjuk Spider-Sense: Percikan obrolan paling asyik selalu punya jawaban yang paling lengkap & manis!",
       photo: "assets/memory_1.png",
-      dateLabel: "MEMORI #01 • COFFEE & LAUGHTER",
+      dateLabel: "CAPSULE-ALPHA • FIRST ENCOUNTER & THE SPARK",
       noteHeading: "Semua Terasa Lebih Cerah Sejak Ada Kamu ☕❤️",
       noteText: "Sejak hari pertama kita mulai saling berbagi cerita, dunia Spidey yang penuh warna ini rasanya makin seru! Obrolan sama kamu tuh selalu jadi tempat paling nyaman untuk jadi diri sendiri. Makasih udah selalu bikin hariku makin cerah!"
     },
@@ -69,7 +69,7 @@ window.MEMORY_QUEST_DATA = {
       correctIndex: 3,
       hint: "Petunjuk Spider-Sense: Sinyal ter-bucin Spidey selalu terhubung 24/7 khusus ke kamu!",
       photo: "assets/memory_2.png",
-      dateLabel: "MEMORI #02 • MIDNIGHT BREEZE",
+      dateLabel: "CAPSULE-BETA • STARLIGHT CITY WALK & SECRET RADAR",
       noteHeading: "Radar Hatiku Terhubung Khusus Buat Kamu! 🌌✨",
       noteText: "Mau seberapa capek atau riuhnya hari yang kita lalui, waktu malam ngobrol atau jalan bareng kamu di bawah angin kota tuh selalu bikin energi penuh lagi. You are my favorite chill spot across the Spider-Verse!"
     },
@@ -89,7 +89,7 @@ window.MEMORY_QUEST_DATA = {
       correctIndex: 3,
       hint: "Petunjuk Spider-Sense: Petualangan terbaik itu bukan soal wahananya, tapi siapa yang ada di sampingmu!",
       photo: "assets/memory_3.png",
-      dateLabel: "MEMORI #03 • CARNIVAL LAUGHTER",
+      dateLabel: "CAPSULE-GAMMA • CARNIVAL MAGIC & LAUGHTER EXPLOSION",
       noteHeading: "Ketawa Bareng Kamu Itu Kebahagiaan Utama! 🎢🎈",
       noteText: "Setiap tawa ngakak, kejutan kecil, dan momen konyol bareng kamu tuh selalu jadi bagian favorit dari petualangan ini. Kamu selalu punya cara ajaib bikin hari biasa terasa kayak festival meriah!"
     },
@@ -109,7 +109,7 @@ window.MEMORY_QUEST_DATA = {
       correctIndex: 3,
       hint: "Petunjuk Spider-Sense: Jangan ragu-ragu, pilih impian terbesar untuk ulang tahunmu!",
       photo: "assets/memory_4.png",
-      dateLabel: "MEMORI #04 • CELEBRATION TIME",
+      dateLabel: "CAPSULE-DELTA • BRAND NEW DAY BIRTHDAY SURPRISE",
       noteHeading: "Happy Birthday to My Favorite Superhero! 🎉🎂",
       noteText: "Selamat ulang tahun, Jacklyn! Semoga di babak baru 'Brand New Day' ini kamu makin bersinar, makin bahagia, dan selalu ingat kalau aku bakal selalu standby jadi Web-Slinger pribadi yang siap nemenin & dukung kamu di setiap misi kehidupan!"
     },
@@ -129,7 +129,7 @@ window.MEMORY_QUEST_DATA = {
       correctIndex: 3,
       hint: "Petunjuk Spider-Sense: Jawaban ter-sweet selalu mencakup semua kebahagiaan kita!",
       photo: "assets/easteregg.png",
-      dateLabel: "MEMORI #05 • CROSSWORD PUZZLE MASTER",
+      dateLabel: "CAPSULE-EPSILON • CROSSWORD MEMORY CHALLENGE",
       noteHeading: "You are My Favorite Partner Forever! 🧩❤️",
       noteText: "Luar biasa! Otak jenius dan Spider-Sense milikmu bener-bener gak ada tandingannya! Kamu berhasil memecahkan seluruh Teka-Teki Silang memori kita dengan sempurna. Happy Birthday, my superhero!"
     }

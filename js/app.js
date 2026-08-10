@@ -781,12 +781,12 @@ class MemoryQuestApp {
       card.title = 'Klik untuk lihat foto versi penuh!';
       card.innerHTML = `
         <img src="${cap.photo}" alt="${cap.title}">
-        <label>${cap.code} • 🔍 FULL</label>
+        <label>${cap.dateLabel}</label>
       `;
       card.addEventListener('click', (e) => {
         e.stopPropagation();
         if (typeof this.openLightbox === 'function') {
-          this.openLightbox(cap.photo, `${cap.code} • ${cap.title.toUpperCase()}`);
+          this.openLightbox(cap.photo, cap.dateLabel);
         }
       });
       this.finaleGallery.appendChild(card);
