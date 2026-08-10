@@ -234,6 +234,18 @@ class MemoryQuestApp {
   }
 
   bindEvents() {
+    // Global Mobile Audio Unlocker on First Touch/Tap
+    const unlockAudioOnTouch = () => {
+      if (this.sound) {
+        this.sound.initContext();
+        this.sound.startBgm();
+      }
+      window.removeEventListener('touchstart', unlockAudioOnTouch);
+      window.removeEventListener('click', unlockAudioOnTouch);
+    };
+    window.addEventListener('touchstart', unlockAudioOnTouch, { once: true });
+    window.addEventListener('click', unlockAudioOnTouch, { once: true });
+
     // Bypass Lock Button
     this.btnBypassLock.addEventListener('click', () => {
       if (this.countdownTimer) clearInterval(this.countdownTimer);
@@ -265,6 +277,7 @@ class MemoryQuestApp {
 
     // 2. Audio Toggle
     this.btnAudioToggle.addEventListener('click', () => {
+      this.sound.initContext();
       const muted = this.sound.toggleMute();
       this.audioIcon.textContent = muted ? '🔇 MUTED' : '🔊 MUSIC';
     });

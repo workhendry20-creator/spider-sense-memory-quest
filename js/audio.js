@@ -20,8 +20,18 @@ class SoundEngine {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
       this.ctx = new AudioCtx();
     }
-    if (this.ctx.state === 'suspended') {
+    if (this.ctx && this.ctx.state === 'suspended') {
       this.ctx.resume();
+      // Silent buffer trick for iOS Safari Web Audio unlock
+      try {
+        const buffer = this.ctx.createBuffer(1, 1, 22050);
+        const source = this.ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(this.ctx.destination);
+        source.start(0);
+      } catch (e) {
+        console.warn("Audio unlock silent buffer exception:", e);
+      }
     }
   }
 
@@ -236,8 +246,12 @@ class SoundEngine {
 
   // 8. Retro Superhero Synth BGM Loop
   startBgm() {
-    if (this.isBgmPlaying || this.isMuted) return;
+    if (this.isMuted) return;
     this.initContext();
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+    if (this.isBgmPlaying) return;
     this.isBgmPlaying = true;
 
     const melody = [261.63, 311.13, 349.23, 392.00, 466.16, 523.25, 392.00, 349.23];
