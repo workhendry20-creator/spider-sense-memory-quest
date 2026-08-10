@@ -917,6 +917,7 @@ class CrosswordTTSGame {
 
     this.keyHandler = (e) => {
       if (!this.container || !this.container.offsetParent) return;
+      if (e.target && e.target.tagName === 'INPUT') return;
       const k = e.key.toUpperCase();
       if (/^[A-Z]$/.test(k)) {
         this.handleInputLetter(k);
