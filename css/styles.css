@@ -1543,6 +1543,28 @@ button, input, select, canvas, .memory-card, .floating-target, .dial-card, .btn-
     font-size: 1.1rem;
     padding: 8px 16px;
   }
+
+  .tts-clues-container {
+    grid-template-columns: 1fr !important;
+    max-height: 130px !important;
+  }
+
+  .tts-cell {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .tts-cell-num {
+    font-size: 0.5rem !important;
+  }
+
+  .tts-key-btn {
+    min-width: 24px !important;
+    height: 32px !important;
+    font-size: 0.9rem !important;
+    padding: 2px 4px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1636,7 +1658,6 @@ button, input, select, canvas, .memory-card, .floating-target, .dial-card, .btn-
 
 #btn-accept-stark-mission {
   flex-shrink: 0;
-}
 }
 
 /* MARVEL STUDIOS INTRO OVERLAY & AVENGERS LOGO STYLING */

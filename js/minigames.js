@@ -20,19 +20,13 @@ function bindTouchClick(element, callback) {
   let lastTrigger = 0;
   const handler = (e) => {
     const now = Date.now();
-    if (now - lastTrigger < 180) return;
+    if (now - lastTrigger < 220) return;
     lastTrigger = now;
-    if (e) {
-      if (e.cancelable && e.type !== 'click') {
-        e.preventDefault();
-      }
-      e.stopPropagation();
-    }
     callback(e);
   };
 
   element.addEventListener('click', handler);
-  element.addEventListener('pointerdown', handler, { passive: false });
+  element.addEventListener('touchend', handler, { passive: true });
 }
 
 class TargetArcadeGame {
