@@ -502,13 +502,13 @@ class MemoryQuestApp {
     if (this.currentCapsuleIndex < this.totalCapsules) {
       const currentCapsule = this.data.capsules[this.currentCapsuleIndex];
       const statusStories = [
-        `🚨 MISI 01: Sinyal Percikan Terdeteksi di Area Coffee Shop! (${currentCapsule.title})`,
-        `🌃 MISI 02: Radar Bergetar Hebat di Langit Malam Kota! (${currentCapsule.title})`,
-        `🎡 MISI 03: Sinyal Tawa & Carnival Terbaca di Radar HQ! (${currentCapsule.title})`,
-        `🎂 MISI 04: Sinyal Ulang Tahun Brand New Day Active! (${currentCapsule.title})`,
-        `🧩 MISI 05: Sinyal Teka-Teki Silang TTS Spidey Rahasia Active! (${currentCapsule.title})`
+        `🚨 MISSION 01: Spark Signal Detected in Coffee Shop Area! (${currentCapsule.title})`,
+        `🌃 MISSION 02: Radar Vibrating Strongly in Night City Sky! (${currentCapsule.title})`,
+        `🎡 MISSION 03: Carnival Laughter Signal Detected at HQ! (${currentCapsule.title})`,
+        `🎂 MISSION 04: Brand New Day Birthday Signal Active! (${currentCapsule.title})`,
+        `🧩 MISSION 05: Secret Spidey Crossword Signal Active! (${currentCapsule.title})`
       ];
-      this.missionStatusText.textContent = statusStories[this.currentCapsuleIndex] || `MISI AKTIF: DETEKSI ${currentCapsule.code}`;
+      this.missionStatusText.textContent = statusStories[this.currentCapsuleIndex] || `ACTIVE MISSION: DETECTING ${currentCapsule.code}`;
     }
   }
 
@@ -575,7 +575,7 @@ class MemoryQuestApp {
 
   openRomanticQuestionModal(index) {
     const capsule = this.data.capsules[index];
-    this.quizTag.textContent = `${capsule.code} • KUIS MEMORI`;
+    this.quizTag.textContent = `${capsule.code} • MEMORY QUIZ`;
     this.quizQuestion.textContent = capsule.question;
     this.quizHintBox.textContent = capsule.hint;
     this.quizHintBox.style.display = 'none';
@@ -669,7 +669,7 @@ class MemoryQuestApp {
     ctx.font = 'bold 20px Bangers, cursive';
     ctx.fillStyle = '#101010';
     ctx.textAlign = 'center';
-    ctx.fillText("🕸️ GOSOK UNTUK BUKA MEMORI!", canvas.width / 2, canvas.height / 2);
+    ctx.fillText("🕸️ SCRATCH TO REVEAL MEMORY!", canvas.width / 2, canvas.height / 2);
 
     let isScratching = false;
 
@@ -827,7 +827,7 @@ class MemoryQuestApp {
       el.classList.add('extinguished');
     });
 
-    this.micStatusBadge.innerHTML = `🎉 LILIN BERHASIL DITIUP! HAPPY BIRTHDAY! 🎉`;
+    this.micStatusBadge.innerHTML = `🎉 CANDLES BLOWN OUT SUCCESSFULLY! HAPPY BIRTHDAY! 🎉`;
     this.micStatusBadge.style.background = '#FCD705';
     this.micStatusBadge.style.color = '#101010';
 

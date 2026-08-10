@@ -51,15 +51,15 @@ class TargetArcadeGame {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <div class="comic-stamp" style="background: var(--comic-red);">MISSION 1: SPIDEY TARGET PRACTICE</div>
           <button type="button" id="btn-skip-mg-1" class="btn-skip-minigame" style="background: var(--comic-yellow); border: 2px solid #101010; font-family: var(--font-header); font-size: 0.95rem; padding: 4px 10px; cursor: pointer; box-shadow: 2px 2px 0 #101010;">
-            ⚡ BUKA KAPSUL MEMORI #01
+            ⚡ UNLOCK MEMORY CAPSULE #01
           </button>
         </div>
         <h3 class="minigame-title">🎯 SPIDEY TARGET PRACTICE</h3>
-        <p class="minigame-sub">Tembak ikon target yang tepat! kalo salah meledak nanti</b>!</p>
+        <p class="minigame-sub">Tap the correct target icons! Beware of explosive traps!</p>
         <div class="minigame-score-badge">SPIDEY HITS: <span id="target-counter">0</span> / 5</div>
       </div>
       <div id="target-arcade-arena" class="arcade-arena">
-        <div class="arcade-instruction">Coba tebak & tembak target! Cari tahu ikon mana yang aman & mana yang bom!</div>
+        <div class="arcade-instruction">Find & hit the targets! Learn which icons are safe and which ones explode!</div>
       </div>
     `;
 
@@ -146,10 +146,10 @@ class TargetArcadeGame {
         notifOverlay.className = 'comic-notif-overlay fail';
         notifOverlay.innerHTML = `
           <div class="notif-boom-icon">💣💥</div>
-          <div class="notif-comic-bubble">KABOOM! JEBAKAN MELEDAK!</div>
-          <div class="notif-subtext">Waduh! Kamu salah klik target. Target reset kembali ke 0!</div>
+          <div class="notif-comic-bubble">KABOOM! TRAP EXPLODED!</div>
+          <div class="notif-subtext">Oops! You hit a bomb trap. Target hits reset to 0!</div>
           <button type="button" class="notif-action-btn" id="btn-restart-mg1">
-            🔄 ULANGI SEKARANG (RESET 0)
+            🔄 RETRY NOW (RESET 0)
           </button>
         `;
 
@@ -193,7 +193,7 @@ class TargetArcadeGame {
           MISSION 1 ACCOMPLISHED!
         </div>
         <button type="button" id="btn-next-mission-1" class="btn-primary-comic" style="font-size: 1.3rem; padding: 12px 24px; width: 100%; justify-content: center;">
-          ⚡ BUKA KAPSUL MEMORI #01
+          ⚡ UNLOCK MEMORY CAPSULE #01
         </button>
       </div>
     `;
@@ -240,7 +240,7 @@ class WebDecoderGame {
     const statusEl = this.container.querySelector('#decoder-status');
     if (statusEl) {
       statusEl.className = 'decoder-status-badge';
-      statusEl.innerHTML = `STANDBY • MASUKKAN KODE FREKUENSI`;
+      statusEl.innerHTML = `STANDBY • INPUT FREQUENCY CODE`;
     }
   }
 
@@ -250,11 +250,11 @@ class WebDecoderGame {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <div class="comic-stamp" style="background: var(--comic-blue); color: #FFF;">MISSION 2: SPIDER-DECODER</div>
           <button type="button" id="btn-skip-mg-2" class="btn-skip-minigame" style="background: var(--comic-yellow); border: 2px solid #101010; font-family: var(--font-header); font-size: 0.95rem; padding: 4px 10px; cursor: pointer; box-shadow: 2px 2px 0 #101010;">
-            ⚡ BUKA KAPSUL MEMORI #02
+            ⚡ UNLOCK MEMORY CAPSULE #02
           </button>
         </div>
         <h3 class="minigame-title">🔐 SPIDER-TRACER FREQUENCY CIPHER</h3>
-        <p class="minigame-sub">Gunakan tombol ▲ / ▼ untuk memutar dial & menyeleraskan 4 digit frekuensi rahasia!</p>
+        <p class="minigame-sub">Use ▲ / ▼ buttons to spin dials & align the 4 secret frequency digits!</p>
       </div>
 
       <div class="decoder-dials-wrapper">
@@ -267,7 +267,7 @@ class WebDecoderGame {
         `).join('')}
       </div>
 
-      <div id="decoder-status" class="decoder-status-badge">STANDBY • MEMUTAR FREKUENSI SPIDER-TRACER</div>
+      <div id="decoder-status" class="decoder-status-badge">STANDBY • TUNING SPIDER-TRACER FREQUENCY</div>
 
       <button type="button" id="btn-submit-decoder" class="btn-primary-comic" style="width: 100%; justify-content: center; margin-top: 15px; font-size: 1.25rem;">
         ⚡ CRACK FREQUENCY NOW
@@ -311,10 +311,10 @@ class WebDecoderGame {
       notifOverlay.className = 'comic-notif-overlay fail';
       notifOverlay.innerHTML = `
         <div class="notif-boom-icon">❌🔐</div>
-        <div class="notif-comic-bubble">KODE FREKUENSI MISMACET!</div>
-        <div class="notif-subtext">Aduh! Kombinasi sinyal belum pas. Dials di-reset kembali ke 0000!</div>
+        <div class="notif-comic-bubble">FREQUENCY CODE MISMATCH!</div>
+        <div class="notif-subtext">Signal combination misaligned. Dials reset to 0000!</div>
         <button type="button" class="notif-action-btn" id="btn-reset-notif-2">
-          🔄 ULANGI SEKARANG (0000)
+          🔄 RETRY NOW (0000)
         </button>
       `;
 
@@ -342,10 +342,10 @@ class WebDecoderGame {
     notifOverlay.className = 'comic-notif-overlay success';
     notifOverlay.innerHTML = `
       <div class="notif-boom-icon">✨🔐✨</div>
-      <div class="notif-comic-bubble">BOOM! FREKUENSI MATCHED!</div>
-      <div class="notif-subtext">Mantap! Sinyal Spider-Tracer berhasil tersambung sempurna! Membuka Kapsul Memori #02...</div>
+      <div class="notif-comic-bubble">BOOM! FREQUENCY MATCHED!</div>
+      <div class="notif-subtext">Awesome! Spider-Tracer signal connected perfectly! Unlocking Memory Capsule #02...</div>
       <button type="button" class="notif-action-btn" id="btn-next-success-2" style="background: var(--comic-yellow);">
-        🚀 BUKA KAPSUL MEMORI #02
+        🚀 UNLOCK MEMORY CAPSULE #02
       </button>
     `;
 
@@ -381,10 +381,10 @@ class MemoryMatchGame {
     ];
 
     this.stageConfigs = [
-      { stage: 1, pairs: 2, title: "STAGE 1: 2 PASANG KARTU MEMORI (WARM UP)", peekTime: 2000, gridClass: "grid-cols-2" },
-      { stage: 2, pairs: 3, title: "STAGE 2: 3 PASANG KARTU MEMORI (GETTING HOT)", peekTime: 2000, gridClass: "grid-cols-3" },
-      { stage: 3, pairs: 5, title: "STAGE 3: 5 PASANG KARTU MEMORI (SPIDEY SPEED)", peekTime: 3000, gridClass: "grid-cols-5" },
-      { stage: 4, pairs: 8, title: "STAGE 4: 8 PASANG KARTU MEMORI (ULTIMATE MASTER)", peekTime: 3000, gridClass: "grid-cols-4" }
+      { stage: 1, pairs: 2, title: "STAGE 1: 2 MEMORY CARD PAIRS (WARM UP)", peekTime: 2000, gridClass: "grid-cols-2" },
+      { stage: 2, pairs: 3, title: "STAGE 2: 3 MEMORY CARD PAIRS (GETTING HOT)", peekTime: 2000, gridClass: "grid-cols-3" },
+      { stage: 3, pairs: 5, title: "STAGE 3: 5 MEMORY CARD PAIRS (SPIDEY SPEED)", peekTime: 3000, gridClass: "grid-cols-5" },
+      { stage: 4, pairs: 8, title: "STAGE 4: 8 MEMORY CARD PAIRS (ULTIMATE MASTER)", peekTime: 3000, gridClass: "grid-cols-4" }
     ];
 
     this.flippedCards = [];
@@ -426,12 +426,12 @@ class MemoryMatchGame {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <div class="comic-stamp" style="background: var(--comic-yellow); color: #101010;">MISSION 3: MEMORY MATCH</div>
           <button type="button" id="btn-skip-mg-3" class="btn-skip-minigame" style="background: var(--comic-yellow); border: 2px solid #101010; font-family: var(--font-header); font-size: 0.95rem; padding: 4px 10px; cursor: pointer; box-shadow: 2px 2px 0 #101010;">
-            ⚡ BUKA KAPSUL MEMORI #03
+            ⚡ UNLOCK MEMORY CAPSULE #03
           </button>
         </div>
         <h3 class="minigame-title">🃏 ${config.title}</h3>
-        <p class="minigame-sub" id="memory-sub">👀 MENGINTIP KARTU (${config.peekTime/1000} DETIK)... INGAT POSISINYA!</p>
-        <div class="minigame-score-badge" id="memory-counter">MATCHED: <span id="pair-counter">0</span> / ${config.pairs} PASANG</div>
+        <p class="minigame-sub" id="memory-sub">👀 PEEKING AT CARDS (${config.peekTime/1000} SECONDS)... REMEMBER POSITIONS!</p>
+        <div class="minigame-score-badge" id="memory-counter">MATCHED: <span id="pair-counter">0</span> / ${config.pairs} PAIRS</div>
       </div>
 
       <div class="memory-grid ${config.gridClass}" id="memory-cards-grid">
@@ -476,7 +476,7 @@ class MemoryMatchGame {
 
       const config = this.stageConfigs[this.currentStage - 1];
       const subEl = this.container.querySelector('#memory-sub');
-      if (subEl) subEl.innerHTML = `Buka 2 kartu untuk mencocokkan <b>${config.pairs} pasang ikon!</b>`;
+      if (subEl) subEl.innerHTML = `Flip 2 cards to match <b>${config.pairs} pairs of icons!</b>`;
       safeAudio('playThwipSFX');
     }, peekDuration);
   }
@@ -550,9 +550,9 @@ class MemoryMatchGame {
     notifOverlay.innerHTML = `
       <div class="notif-boom-icon">🎉🃏🧠</div>
       <div class="notif-comic-bubble">ULTIMATE SPIDEY MEMORY MASTER!</div>
-      <div class="notif-subtext">Luar biasa! Daya ingat tajam Spidey-mu berhasil menuntaskan 4 stage hingga 8 pasang kartu! Membuka Kapsul Memori #03...</div>
+      <div class="notif-subtext">Outstanding! Your sharp Spidey memory cleared all 4 stages up to 8 card pairs! Unlocking Memory Capsule #03...</div>
       <button type="button" class="notif-action-btn" id="btn-next-success-3" style="background: var(--comic-yellow);">
-        🚀 BUKA KAPSUL MEMORI #03
+        🚀 UNLOCK MEMORY CAPSULE #03
       </button>
     `;
 
@@ -578,9 +578,9 @@ class CrypticCipherGame {
     this.stages = [
       {
         id: 1,
-        title: "STAGE 1: PERSAMAAN LOGIKA SPIDEY",
-        sub: "Hitung kesamaan nilai simbol Spider-Sense!",
-        question: "⚖️ Diberikan persamaan logika:<br>• <b>1 Heart (💖) = 2 Spiders (🕷️)</b><br>• <b>1 Web (🕸️) = 3 Hearts (💖)</b><br><br>Berapa banyak Spider (🕷️) yang dibutuhkan untuk menyeimbangkan 1 Web (🕸️)?",
+        title: "STAGE 1: SPIDEY LOGIC EQUATION",
+        sub: "Calculate the value of Spider-Sense symbols!",
+        question: "⚖️ Given the logic equation:<br>• <b>1 Heart (💖) = 2 Spiders (🕷️)</b><br>• <b>1 Web (🕸️) = 3 Hearts (💖)</b><br><br>How many Spiders (🕷️) are needed to balance 1 Web (🕸️)?",
         options: [
           "A. 4 Spiders",
           "B. 5 Spiders",
@@ -588,33 +588,33 @@ class CrypticCipherGame {
           "D. 8 Spiders"
         ],
         correctIndex: 2, // C. 6 Spiders (3 x 2 = 6)
-        hint: "Petunjuk: 1 Web = 3 Hearts, dan tiap Heart = 2 Spiders. Jadi 3 x 2 = 6!"
+        hint: "Hint: 1 Web = 3 Hearts, and each Heart = 2 Spiders. So 3 x 2 = 6!"
       },
       {
         id: 2,
-        title: "STAGE 2: TEKA-TEKI SPIDER-SENSE",
-        sub: "Pikirkan logika teka-teki rahasia ini!",
-        question: "🔮 <b>Aku ada di awal ULANG TAHUN, ada di tengah MINGGU, dan ada di akhir KUNJUNGAN... Tapi TIDAK ADA di bulan AGUSTUS. Apakah aku?</b>",
+        title: "STAGE 2: SPIDER-SENSE RIDDLE",
+        sub: "Think about the logic of this secret riddle!",
+        question: "🔮 <b>I am at the start of UP, in the middle of SUN, and at the end of YOU... But NOT in the month of AUGUST. What am I?</b>",
         options: [
-          "A. Angin Malam",
-          "B. Huruf U",
-          "C. Bayangan",
-          "D. Waktu"
+          "A. Night Breeze",
+          "B. The Letter U",
+          "C. Shadow",
+          "D. Time"
         ],
-        correctIndex: 1, // B. Huruf U
-        hint: "Petunjuk: Perhatikan huruf pertama ULANG TAHUN, huruf tengah MINGGU, dan huruf akhir KUNJUNGAN!"
+        correctIndex: 1, // B. Letter U
+        hint: "Hint: Look at the first letter of UP, middle of SUN, and last letter of YOU!"
       },
       {
         id: 3,
         title: "STAGE 3: MASTER LOGIC CIPHER CODE",
-        sub: "Deduksikan 3 angka rahasia brankas terakhir!",
-        question: "🔐 <b>Pecahkan Kode 3 Angka Brankas Terakhir:</b><br><br>" +
-          "• <b>6 - 8 - 2</b> : 1 angka benar & posisinya BENAR<br>" +
-          "• <b>6 - 1 - 4</b> : 1 angka benar tapi posisinya SALAH<br>" +
-          "• <b>2 - 0 - 6</b> : 2 angka benar tapi posisinya SALAH<br>" +
-          "• <b>7 - 3 - 8</b> : Tidak ada angka yang benar<br>" +
-          "• <b>7 - 8 - 0</b> : 1 angka benar tapi posisinya SALAH<br><br>" +
-          "<b>Berapakah Kode 3 Angka Rahasia Brankas Ini?</b>",
+        sub: "Deduce the 3 secret numbers of the final vault!",
+        question: "🔐 <b>Crack the 3-Digit Vault Code:</b><br><br>" +
+          "• <b>6 - 8 - 2</b> : 1 digit is correct & in the CORRECT position<br>" +
+          "• <b>6 - 1 - 4</b> : 1 digit is correct but in the WRONG position<br>" +
+          "• <b>2 - 0 - 6</b> : 2 digits are correct but in WRONG positions<br>" +
+          "• <b>7 - 3 - 8</b> : Nothing is correct<br>" +
+          "• <b>7 - 8 - 0</b> : 1 digit is correct but in the WRONG position<br><br>" +
+          "<b>What is the 3-Digit Secret Code?</b>",
         options: [
           "A. 2 - 4 - 0",
           "B. 0 - 4 - 2",
@@ -622,7 +622,7 @@ class CrypticCipherGame {
           "D. 0 - 8 - 4"
         ],
         correctIndex: 1, // B. 0-4-2
-        hint: "Petunjuk: Elimination! 7, 3, 8 salah. Angka terakhir pasti 2. Angka pertama pasti 0. Tengah 4 = (0-4-2)!"
+        hint: "Hint: Elimination! 7, 3, 8 are wrong. Last digit is 2. First is 0. Middle is 4 = (0-4-2)!"
       }
     ];
   }
@@ -640,12 +640,12 @@ class CrypticCipherGame {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <div class="comic-stamp" style="background: var(--comic-purple); color: #FFF;">MISSION 4: CRYPTIC CIPHER</div>
           <button type="button" id="btn-skip-mg-4" class="btn-skip-minigame" style="background: var(--comic-yellow); border: 2px solid #101010; font-family: var(--font-header); font-size: 0.95rem; padding: 4px 10px; cursor: pointer; box-shadow: 2px 2px 0 #101010;">
-            ⚡ BUKA KAPSUL MEMORI #04
+            ⚡ UNLOCK MEMORY CAPSULE #04
           </button>
         </div>
         <h3 class="minigame-title">🧩 ${stage.title}</h3>
         <p class="minigame-sub">${stage.sub}</p>
-        <div class="minigame-score-badge">PROGRESS LOGIKA: STAGE ${this.currentStage} / 3</div>
+        <div class="minigame-score-badge">LOGIC PROGRESS: STAGE ${this.currentStage} / 3</div>
       </div>
 
       <div style="background: #FFF; border: 4px solid var(--comic-dark); box-shadow: 6px 6px 0 var(--comic-dark); padding: 18px; border-radius: 8px; margin-bottom: 15px;">
@@ -695,10 +695,10 @@ class CrypticCipherGame {
       notifOverlay.className = 'comic-notif-overlay fail';
       notifOverlay.innerHTML = `
         <div class="notif-boom-icon">❌🧩</div>
-        <div class="notif-comic-bubble">JAWABAN LOGIKA SALAH!</div>
-        <div class="notif-subtext">Ups! Cobalah analisis sekali lagi secara teliti, ikuti petunjuknya!</div>
+        <div class="notif-comic-bubble">INCORRECT LOGIC ANSWER!</div>
+        <div class="notif-subtext">Oops! Analyze carefully once more, follow the hints!</div>
         <button type="button" class="notif-action-btn" id="btn-retry-cipher">
-          🔄 COBA LAGI STAGE ${this.currentStage}
+          🔄 RETRY STAGE ${this.currentStage}
         </button>
       `;
 
@@ -720,9 +720,9 @@ class CrypticCipherGame {
     notifOverlay.innerHTML = `
       <div class="notif-boom-icon">🧠🧩🎉</div>
       <div class="notif-comic-bubble">GENIUS! CIPHER SOLVED!</div>
-      <div class="notif-subtext">Luar biasa! Otak jeniusmu berhasil memecahkan ke-3 teka-teki logika! Membuka Kapsul Memori #04...</div>
+      <div class="notif-subtext">Brilliant! Your sharp mind solved all 3 logic riddles! Unlocking Memory Capsule #04...</div>
       <button type="button" class="notif-action-btn" id="btn-next-success-4" style="background: var(--comic-yellow);">
-        🚀 BUKA KAPSUL MEMORI #04
+        🚀 UNLOCK MEMORY CAPSULE #04
       </button>
     `;
 
@@ -750,14 +750,14 @@ class CrosswordTTSGame {
 
     // 8 Verified Interlocked Personal Words
     this.words = [
-      { id: 'm1', number: 1, type: 'across', title: '1 MENDATAR', clue: 'Kopi favorit kita? (9 huruf)', answer: 'JANJIJIWA', r: 0, c: 0 },
-      { id: 'm2', number: 2, type: 'across', title: '2 MENDATAR', clue: 'Singer favorit kita? (6 huruf)', answer: 'JORDAN', r: 1, c: 3 },
-      { id: 'm3', number: 3, type: 'across', title: '3 MENDATAR', clue: 'Tempat pertama kali kita ketemu? (8 huruf)', answer: 'NUTRIHUB', r: 2, c: 4 },
-      { id: 'm4', number: 4, type: 'across', title: '4 MENDATAR', clue: 'Sushi favorit kita? (7 huruf)', answer: 'BALISTA', r: 2, c: 11 },
-      { id: 'm5', number: 5, type: 'across', title: '5 MENDATAR', clue: 'Kartun apa yang mirip dengan kamu? (5 huruf)', answer: 'LOOPY', r: 5, c: 4 },
-      { id: 'd1', number: 1, type: 'down', title: '1 MENURUN', clue: 'Dimana tempat makan pertama kali banget kita? (9 huruf)', answer: 'WARKOPADD', r: 0, c: 7 },
-      { id: 'd2', number: 2, type: 'down', title: '2 MENURUN', clue: 'Running pertama kita? (9 huruf)', answer: 'SIERRARUN', r: 1, c: 14 },
-      { id: 'd3', number: 3, type: 'down', title: '3 MENURUN', clue: 'Brand yang menjadi event aku deketin kamu? (6 huruf)', answer: 'POCARI', r: 4, c: 5 }
+      { id: 'm1', number: 1, type: 'across', title: '1 ACROSS', clue: 'Our favorite coffee? (9 letters)', answer: 'JANJIJIWA', r: 0, c: 0 },
+      { id: 'm2', number: 2, type: 'across', title: '2 ACROSS', clue: 'Our favorite singer? (6 letters)', answer: 'JORDAN', r: 1, c: 3 },
+      { id: 'm3', number: 3, type: 'across', title: '3 ACROSS', clue: 'Where we first met? (8 letters)', answer: 'NUTRIHUB', r: 2, c: 4 },
+      { id: 'm4', number: 4, type: 'across', title: '4 ACROSS', clue: 'Our favorite sushi? (7 letters)', answer: 'BALISTA', r: 2, c: 11 },
+      { id: 'm5', number: 5, type: 'across', title: '5 ACROSS', clue: 'Which cartoon character looks like you? (5 letters)', answer: 'LOOPY', r: 5, c: 4 },
+      { id: 'd1', number: 1, type: 'down', title: '1 DOWN', clue: 'Our very first restaurant / eating spot? (9 letters)', answer: 'WARKOPADD', r: 0, c: 7 },
+      { id: 'd2', number: 2, type: 'down', title: '2 DOWN', clue: 'Our first running event? (9 letters)', answer: 'SIERRARUN', r: 1, c: 14 },
+      { id: 'd3', number: 3, type: 'down', title: '3 DOWN', clue: 'Brand event where I first approached you? (6 letters)', answer: 'POCARI', r: 4, c: 5 }
     ];
 
     this.userAnswers = {};
@@ -789,11 +789,11 @@ class CrosswordTTSGame {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <div class="comic-stamp" style="background: var(--comic-red); color: #FFF;">MISSION 5: SPIDEY CROSSWORD (TTS)</div>
           <button type="button" id="btn-skip-mg-5" class="btn-skip-minigame" style="background: var(--comic-yellow); border: 2px solid #101010; font-family: var(--font-header); font-size: 0.95rem; padding: 4px 10px; cursor: pointer; box-shadow: 2px 2px 0 #101010;">
-            ⚡ BUKA KAPSUL MEMORI #05
+            ⚡ UNLOCK MEMORY CAPSULE #05
           </button>
         </div>
-        <h3 class="minigame-title">🧩 TEKA-TEKI SILANG SPIDEY</h3>
-        <p class="minigame-sub">Isi huruf pada kotak atau pilih soal di bawah ini!</p>
+        <h3 class="minigame-title">🧩 SPIDEY CROSSWORD PUZZLE</h3>
+        <p class="minigame-sub">Tap cells or clues below to fill in letters!</p>
       </div>
 
       <div class="tts-wrapper">
@@ -822,7 +822,7 @@ class CrosswordTTSGame {
 
         <div class="tts-clues-container">
           <div class="tts-clue-group">
-            <h4 class="tts-clue-heading">➡️ MENDATAR (ACROSS)</h4>
+            <h4 class="tts-clue-heading">➡️ ACROSS</h4>
             ${this.words.filter(w => w.type === 'across').map(w => `
               <div class="tts-clue-item" data-id="${w.id}">
                 <b>${w.number}.</b> ${w.clue}
@@ -830,7 +830,7 @@ class CrosswordTTSGame {
             `).join('')}
           </div>
           <div class="tts-clue-group">
-            <h4 class="tts-clue-heading">⬇️ MENURUN (DOWN)</h4>
+            <h4 class="tts-clue-heading">⬇️ DOWN</h4>
             ${this.words.filter(w => w.type === 'down').map(w => `
               <div class="tts-clue-item" data-id="${w.id}">
                 <b>${w.number}.</b> ${w.clue}
@@ -842,13 +842,13 @@ class CrosswordTTSGame {
 
       <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
         <button type="button" id="btn-tts-focus-kbd" class="btn-primary-comic" style="flex: 1; justify-content: center; font-size: 1rem; background: #00F0FF; color: #0A1128;">
-          ⌨️ KETIK DENGAN KEYBOARD HP
+          ⌨️ TYPE WITH PHONE KEYBOARD
         </button>
         <button type="button" id="btn-tts-hint" class="btn-icon" style="flex: 1; justify-content: center; background: #FFF;">
-          💡 PETUNJUK
+          💡 HINT
         </button>
         <button type="button" id="btn-tts-check" class="btn-primary-comic" style="flex: 1; justify-content: center; font-size: 1.05rem; background: var(--comic-yellow); color: #101010;">
-          ⚡ CEK JAWABAN
+          ⚡ CHECK ANSWERS
         </button>
       </div>
     `;
@@ -1035,10 +1035,10 @@ class CrosswordTTSGame {
     notifOverlay.className = 'comic-notif-overlay success';
     notifOverlay.innerHTML = `
       <div class="notif-boom-icon">🧩✏️🎉</div>
-      <div class="notif-comic-bubble">ULTIMATE TTS CROSSWORD MASTER!</div>
-      <div class="notif-subtext">Luar biasa! Otak jeniusmu berhasil menyelesaikan seluruh Teka-Teki Silang Spidey! Membuka Kapsul Memori #05...</div>
+      <div class="notif-comic-bubble">ULTIMATE CROSSWORD PUZZLE MASTER!</div>
+      <div class="notif-subtext">Brilliant! Your genius mind completed all of Spidey's Memory Crossword! Unlocking Memory Capsule #05...</div>
       <button type="button" class="notif-action-btn" id="btn-next-success-5" style="background: var(--comic-yellow);">
-        🚀 BUKA KAPSUL MEMORI #05
+        🚀 UNLOCK MEMORY CAPSULE #05
       </button>
     `;
 

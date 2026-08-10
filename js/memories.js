@@ -16,22 +16,22 @@ window.MEMORY_QUEST_DATA = {
   starkLetter: {
     protocolCode: "STARK-AVENGERS-PROTOCOL #2026-JT",
     recipient: "AGENT JACKLYN TAMARA",
-    sender: "Tony Stark (Stark Industries HQ) & Peter Parker (Spider-Man)",
+    sender: "Tony Stark & Hendry",
     subject: "SPECIAL BIRTHDAY MISSION: BRAND NEW DAY MEMORY QUEST",
     stampText: "STARK APPROVED • EYES ONLY",
     salutation: "DEAR AGENT JACKLYN TAMARA,",
-    bodyParagraph1: "Radar Arc Reactor mendeteksi lonjakan energi ulang tahun luar biasa di koordinat hatimu hari ini!",
-    bodyParagraph2: "Misi rahasia 'Brand New Day' resmi aktif. 5 Kapsul Memori Vital telah disembunyikan di sudut kota.",
-    bodyParagraph3: "Sebagai Superhero Partner Spidey, pecahkan minigame & klaim hadiah fisikmu di dunia nyata. Ready to swing?",
+    bodyParagraph1: "Arc Reactor radar detected an extraordinary birthday energy surge at your heart's coordinates today!",
+    bodyParagraph2: "The secret 'Brand New Day' mission is officially active. 5 Vital Memory Capsules are hidden across the city.",
+    bodyParagraph3: "As Spidey's beloved Superhero Partner, decrypt the minigames & claim your real-world reward. Ready to swing?",
     signatory: "— Hendry✍️",
-    buttonText: "⚡ SAYA SIAP TERIMA MISI!"
+    buttonText: "⚡ I'M READY FOR THE MISSION!"
   },
   
   // 1. COUNTDOWN LOCK SETTINGS
   enableCountdown: false, // Set to true to lock app until target date (Bypass available for testing)
   birthdayTargetDate: "2026-08-08T00:00:00+07:00",
   
-  // 2. 4 MEMORY CAPSULES
+  // 2. 5 MEMORY CAPSULES
   capsules: [
     {
       id: 1,
@@ -39,19 +39,19 @@ window.MEMORY_QUEST_DATA = {
       title: "First Encounter & The Spark ⚡",
       badgeIcon: "⚡",
       badgeTitle: "The Awakening",
-      question: "Ingat gak momen pertama kali kita beneran 'klik' dan ngobrol panjang lebar tanpa kerasa jam berputar cepet banget?",
+      question: "Remember the first moment we truly clicked and talked for hours without realizing how fast time flew by?",
       options: [
-        "Nongkrong santai di coffee shop favorit sambil cerita hal-hal random",
-        "Pas ngobrol di chat larut malam sampai ketiduran sendiri",
-        "Pas lagi jalan sore nyari makanan enak sambil bercanda",
-        "Semua momen di atas, soalnya obrolan bareng kamu tuh emang selalu seru & gak pernah bosenin!"
+        "Chilling at our favorite coffee shop sharing random fun stories",
+        "Late-night chat conversations until falling asleep",
+        "Wandering around on a cozy evening looking for delicious food while laughing",
+        "All of the above, because talking with you is always exciting & never boring!"
       ],
       correctIndex: 3, // 0-indexed (Option D)
-      hint: "Petunjuk Spider-Sense: Percikan obrolan paling asyik selalu punya jawaban yang paling lengkap & manis!",
+      hint: "Spider-Sense Hint: The sweetest spark of conversation always includes every precious moment!",
       photo: "assets/memory_1.png",
       dateLabel: "CAPSULE-ALPHA • FIRST ENCOUNTER & THE SPARK",
-      noteHeading: "Semua Terasa Lebih Cerah Sejak Ada Kamu ☕❤️",
-      noteText: "Sejak hari pertama kita mulai saling berbagi cerita, dunia Spidey yang penuh warna ini rasanya makin seru! Obrolan sama kamu tuh selalu jadi tempat paling nyaman untuk jadi diri sendiri. Makasih udah selalu bikin hariku makin cerah!"
+      noteHeading: "Everything Shines Brighter Since You Arrived ☕❤️",
+      noteText: "Ever since the first day we started sharing our stories, this vibrant Spidey world has felt so much more exciting! Talking to you is always the most comfortable place to just be myself. Thank you for making every day brighter!"
     },
     {
       id: 2,
@@ -59,19 +59,19 @@ window.MEMORY_QUEST_DATA = {
       title: "Starlight City Walk & Secret Radar 🌃",
       badgeIcon: "🌃",
       badgeTitle: "Night Crawler",
-      question: "Kalau Spider-Man punya Spider-Sense untuk mendeteksi musuh, rahasia apa sih yang bikin aku selalu super peka kalau kamu lagi ngambek atau butuh mood booster?",
+      question: "If Spider-Man has Spider-Sense to detect danger, what secret makes me super perceptive whenever you need a mood booster?",
       options: [
-        "Balasan chat-mu mendadak singkat dan pakai titik (.) yang penuh arti",
-        "Nada bicaranya berubah jadi makin halus tapi misterius",
-        "Tiba-tiba ada kode halus ngajak nyari es krim / boba",
-        "Radar hatiku khusus di-tuning buat ngerti tiap jengkal perasaan Jacklyn!"
+        "Your text replies suddenly get short with meaningful periods (.)",
+        "Your voice tone becomes extra gentle yet mysterious",
+        "A subtle hint for ice cream or boba suddenly appears",
+        "My heart's radar is specially tuned 24/7 to understand your feelings!"
       ],
       correctIndex: 3,
-      hint: "Petunjuk Spider-Sense: Sinyal ter-bucin Spidey selalu terhubung 24/7 khusus ke kamu!",
+      hint: "Spider-Sense Hint: Spidey's most affectionate signal is connected 24/7 exclusively to you!",
       photo: "assets/memory_2.png",
       dateLabel: "CAPSULE-BETA • STARLIGHT CITY WALK & SECRET RADAR",
-      noteHeading: "Radar Hatiku Terhubung Khusus Buat Kamu! 🌌✨",
-      noteText: "Mau seberapa capek atau riuhnya hari yang kita lalui, waktu malam ngobrol atau jalan bareng kamu di bawah angin kota tuh selalu bikin energi penuh lagi. You are my favorite chill spot across the Spider-Verse!"
+      noteHeading: "My Heart's Radar Is Connected Exclusively To You! 🌌✨",
+      noteText: "No matter how exhausting or noisy the day gets, spending late-night talks or strolling under the city breeze with you recharges my energy completely. You are my favorite chill spot across the Spider-Verse!"
     },
     {
       id: 3,
@@ -79,19 +79,19 @@ window.MEMORY_QUEST_DATA = {
       title: "Carnival Magic & Laughter Explosion 🎡",
       badgeIcon: "🎡",
       badgeTitle: "Thrill Seeker",
-      question: "Dari sekian banyak petualangan seru dan kejahilan yang pernah kita lewati berdua, mana momen yang paling ikonik menurut kita?",
+      question: "Out of all our thrilling adventures and playful moments together, which one is the most iconic in our story?",
       options: [
-        "Keliling wahana permainan sambil jajan makanan favorit",
-        "Berburu kulineran malam sampai perut kenyang banget",
-        "Nonton film di bioskop sambil rebutan camilan",
-        "Apapun kegiatannya, yang penting jalannya bareng kamu!"
+        "Riding carnival attractions while eating our favorite snacks",
+        "Late-night food hunting until our bellies are super full",
+        "Watching movies together while playfully fighting over snacks",
+        "Whatever we do, as long as I'm walking right beside you!"
       ],
       correctIndex: 3,
-      hint: "Petunjuk Spider-Sense: Petualangan terbaik itu bukan soal wahananya, tapi siapa yang ada di sampingmu!",
+      hint: "Spider-Sense Hint: The best adventure isn't about the ride, it's about who's sitting next to you!",
       photo: "assets/memory_3.png",
       dateLabel: "CAPSULE-GAMMA • CARNIVAL MAGIC & LAUGHTER EXPLOSION",
-      noteHeading: "Ketawa Bareng Kamu Itu Kebahagiaan Utama! 🎢🎈",
-      noteText: "Setiap tawa ngakak, kejutan kecil, dan momen konyol bareng kamu tuh selalu jadi bagian favorit dari petualangan ini. Kamu selalu punya cara ajaib bikin hari biasa terasa kayak festival meriah!"
+      noteHeading: "Laughing With You Is My Ultimate Joy! 🎢🎈",
+      noteText: "Every loud laugh, silly moment, and sweet surprise with you is my absolute favorite part of this journey. You always have a magical way of making an ordinary day feel like a grand festival!"
     },
     {
       id: 4,
@@ -99,19 +99,19 @@ window.MEMORY_QUEST_DATA = {
       title: "Brand New Day Birthday Surprise 🎂",
       badgeIcon: "🎂",
       badgeTitle: "The Grand Finale",
-      question: "Hari ini hari paling istimewa buat Jacklyn Tamara! Apa doa dan harapan paling epic yang WAJIB terwujud di babak 'Brand New Day' ini?",
+      question: "Today is the most special day for Jacklyn Tamara! What epic birthday wish MUST come true in this 'Brand New Day' chapter?",
       options: [
-        "Jacklyn makin sehat, makin sukses, dan dilimpahi kebahagiaan nonstop",
-        "Semua cita-cita besar dan impian Jacklyn bisa tercapai satu per satu",
-        "Kita makin makin kompak, makin romantis, dan saling support selamanya",
-        "SEMUA DOA BAGUS DI ATAS WAJIB TERWUJUD 10000% TANPA SYARAT! 🎉"
+        "Jacklyn gets healthier, super successful, and filled with non-stop joy",
+        "All of Jacklyn's biggest dreams and aspirations come true one by one",
+        "We grow even closer, more romantic, and support each other forever",
+        "ALL OF THE WONDERFUL WISHES ABOVE MUST COME TRUE 10000%! 🎉"
       ],
       correctIndex: 3,
-      hint: "Petunjuk Spider-Sense: Jangan ragu-ragu, pilih impian terbesar untuk ulang tahunmu!",
+      hint: "Spider-Sense Hint: Don't hold back, choose the grandest wish for your special day!",
       photo: "assets/memory_4.png",
       dateLabel: "CAPSULE-DELTA • BRAND NEW DAY BIRTHDAY SURPRISE",
       noteHeading: "Happy Birthday to My Favorite Superhero! 🎉🎂",
-      noteText: "Selamat ulang tahun, Jacklyn! Semoga di babak baru 'Brand New Day' ini kamu makin bersinar, makin bahagia, dan selalu ingat kalau aku bakal selalu standby jadi Web-Slinger pribadi yang siap nemenin & dukung kamu di setiap misi kehidupan!"
+      noteText: "Happy Birthday, Jacklyn! May this 'Brand New Day' chapter bring you even more shine and happiness. Remember that I'll always be standing by as your personal Web-Slinger, ready to support you in every mission of life!"
     },
     {
       id: 5,
@@ -119,30 +119,30 @@ window.MEMORY_QUEST_DATA = {
       title: "Crossword Memory Challenge & Inside Jokes 🧩",
       badgeIcon: "✏️",
       badgeTitle: "TTS Master",
-      question: "Setelah memecahkan Teka-Teki Silang (TTS) Spidey, apa hal utama yang paling kamu sukai saat kita menghabiskan waktu bersama?",
+      question: "After solving Spidey's Crossword Puzzle, what is your absolute favorite thing when we spend time together?",
       options: [
-        "Tawa ngakak dan obrolan tanpa henti yang selalu seru",
-        "Perhatian dan kehangatan kecil yang bikin hati tenang",
-        "Petualangan baru dan makanan enak yang kita coba berdua",
-        "SEMUA HAL DI ATAS, karena bersamamu adalah momen terbaik di hidupku!"
+        "Unstoppable laughter and endless fun conversations",
+        "Small caring gestures and warmth that bring peace to the heart",
+        "New adventures and delicious food we discover together",
+        "ALL OF THE ABOVE, because being with you is the best part of my life!"
       ],
       correctIndex: 3,
-      hint: "Petunjuk Spider-Sense: Jawaban ter-sweet selalu mencakup semua kebahagiaan kita!",
+      hint: "Spider-Sense Hint: The sweetest answer covers all of our shared happiness!",
       photo: "assets/easteregg.png",
       dateLabel: "CAPSULE-EPSILON • CROSSWORD MEMORY CHALLENGE",
-      noteHeading: "You are My Favorite Partner Forever! 🧩❤️",
-      noteText: "Luar biasa! Otak jenius dan Spider-Sense milikmu bener-bener gak ada tandingannya! Kamu berhasil memecahkan seluruh Teka-Teki Silang memori kita dengan sempurna. Happy Birthday, my superhero!"
+      noteHeading: "You Are My Favorite Partner Forever! 🧩❤️",
+      noteText: "Outstanding! Your brilliant mind and Spider-Sense are truly unmatched! You solved all of Spidey's memory crossword puzzle flawlessly. Happy Birthday, my superhero!"
     }
   ],
 
   // 3. GRAND FINALE & GIFT DETAILS
   grandFinale: {
     heroGreeting: "HAPPY BIRTHDAY, MY SUPERHERO JACKLYN TAMARA!",
-    subheading: "🎉 MISSION ACCOMPLISHED! SELURUH KAPSUL MEMORI BERHASIL DI-THWIP! 🕸️",
-    romanticMessage: `Makasih ya udah hadir dan selalu mewarnai hari-hariku dengan tawa, kehangatan, dan kebaikan hatimu yang luar biasa. Sama kayak Spider-Man yang selalu berjuang demi orang-orang tersayang, kamu tuh selalu jadi superhero terfavorit di hatiku! 
+    subheading: "🎉 MISSION ACCOMPLISHED! ALL MEMORY CAPSULES UNLOCKED! 🕸️",
+    romanticMessage: `Thank you for being here and constantly filling my days with laughter, warmth, and your extraordinary kindness. Just like Spider-Man who always fights for the ones he holds dear, you will always be the #1 superhero in my heart! 
 
-Semoga di usia baru ini, setiap harimu selalu dipenuhi banyak kejutan manis, keberhasilan besar, petualangan seru, dan senyuman yang nggak pernah pudar. I love you 3000 and across the Spider-Verse! ❤️🕷️✨`,
-    giftHeadline: "🎁 MISI TERAKHIR: PETUNJUK KADO FISIK RAHASIA UNLOCKED!",
+May this new year of your life be filled with sweet surprises, grand achievements, thrilling adventures, and a smile that never fades. I love you 3000 and across the Spider-Verse! ❤️🕷️✨`,
+    giftHeadline: "🎁 FINAL MISSION: SECRET PHYSICAL GIFT CLUE UNLOCKED!",
     giftClue: "NANTI AJA YAA KADO NYA PAS SC HEHE",
     giftSecretPasscode: "JACKLYN-SPIDEY-2026",
     giftImage: "assets/gift_box.png"
@@ -153,7 +153,7 @@ Semoga di usia baru ini, setiap harimu selalu dipenuhi banyak kejutan manis, keb
     audioPath: "assets/voice_memo.mp3",
     title: "SPIDER-COMMUNICATOR TRANSMISSION",
     sender: "Peter Parker (Your Web-Slinger)",
-    transcript: "Selamat ulang tahun ya sayang! Makasih udah selalu ada, nemenin, dan bikin hariku penuh dengan tawa & kehangatan. Semoga kejutan kecil dari Web-Slinger pribadi ini bikin kamu tersenyum lebar seharian! Happy Birthday! ❤️"
+    transcript: "Happy Birthday, my love! Thank you for always being here, supporting me, and filling my days with warmth and laughter. I hope this little surprise from your personal Web-Slinger keeps you smiling all day long! Happy Birthday! ❤️"
   },
 
   // 5. SECRET EASTER EGG VAULT (#05)
@@ -163,17 +163,17 @@ Semoga di usia baru ini, setiap harimu selalu dipenuhi banyak kejutan manis, keb
     title: "The Secret Vault: Spidey's Ultimate Memory",
     photo: "assets/easteregg.png",
     dateLabel: "SECRET VAULT • UNLOCKED",
-    noteHeading: "Misi Rahasia Terbuka! High-Five, Spidey Partner! 🕵️‍♂️❤️",
-    noteText: "Waduh! Spider-Sense milikmu tajam banget sampai bisa nemuin brankas rahasia ini! Kamu bener-bener partner paling keren yang pernah ada. Makasih ya udah selalu buat hidupku terasa lengkap selamanya!"
+    noteHeading: "Secret Vault Unlocked! High-Five, Spidey Partner! 🕵️‍♂️❤️",
+    noteText: "Whoa! Your Spider-Sense is so sharp that you uncovered this secret vault! You're truly the coolest partner ever. Thank you for always making my life complete forever!"
   },
 
   // 6. OFFICIAL SUPERHERO PARTNER CERTIFICATE
   certificate: {
     title: "OFFICIAL SUPERHERO PARTNER CERTIFICATE",
     recipientName: "JACKLYN TAMARA",
-    titleGiven: "MOST VALUABLE & FAVORITE SUPERHERO PARTNER OF THE SPIDER-VERSE",
+    titleGiven: "MOST VALUABLE & FAVORITE SUPERHERO PARTNER OF THE MULTIVERSE",
     issueDate: "SPECIAL BIRTHDAY EDITION",
     certificateNumber: "SPIDEY-CERT-2026-JT",
-    signatory: "Spider-Man & Spider-Sense HQ"
+    signatory: "Peter Parker 🕷️ & Hendry ✍️"
   }
 };
